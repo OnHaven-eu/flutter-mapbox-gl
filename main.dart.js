@@ -63799,7 +63799,7 @@ var $async$yJ=P.j(function(c,d){if(c===1)return P.k(d,r)
 while(true)switch(s){case 0:K.Di(a).qd(V.aeP(new F.X_(b),null,t.H))
 return P.l(null,r)}})
 return P.m($async$yJ,r)},
-J:function(a,b){var s=E.adP(C.Kc)
+J:function(a,b){var s=E.adP(C.Kq)
 $.adw()
 return M.oL(s,B.aiY(new F.X1(this,b),15,null),null)}}
 F.X_.prototype={
@@ -64302,7 +64302,7 @@ J.O3(s.f)
 J.O3(s.e)
 J.O3(s.r)},
 J:function(a,b){var s=this,r=null,q=t.D
-return T.bR(H.a([T.dB(T.da(Y.dH(u.s,C.rK,C.a7,!0,r,C.nS,C.aa,!1,C.ab,C.V,r,r,r,s.ga_7(),r,r,r,!0,!0,r,!0,!1,!0),200,r),r,r),T.k0(E.vQ(T.e4(H.a([T.e4(H.a([T.bR(H.a([U.a3(C.Ke,s.ga05(s)),U.a3(C.Kw,s.ga06(s))],q),C.w,C.E,C.n)],q),C.w,C.E,C.n)],q),C.w,C.a9,C.n)),1)],q),C.au,C.a9,C.n)}}
+return T.bR(H.a([T.dB(T.da(Y.dH(u.s,C.rK,C.a7,!0,r,C.nS,C.aa,!1,C.ab,C.V,r,r,r,s.ga_7(),r,r,r,!0,!0,r,!0,!1,!0),200,r),r,r),T.k0(E.vQ(T.e4(H.a([T.e4(H.a([T.bR(H.a([U.a3(C.Kd,s.ga05(s)),U.a3(C.Kw,s.ga06(s))],q),C.w,C.E,C.n)],q),C.w,C.E,C.n)],q),C.w,C.a9,C.n)),1)],q),C.au,C.a9,C.n)}}
 Q.E4.prototype={
 J:function(a,b){return C.Fz}}
 Q.uH.prototype={
@@ -64401,11 +64401,11 @@ J:function(a,b){var s,r,q,p,o,n,m,l,k,j,i=this,h=null,g=T.dB(T.da(Y.dH(u.s,C.ag,
 f=T.bR(H.a([f,U.a3(C.ew,i.f==null?h:i.ga0g(i))],e),C.w,C.E,C.n)
 s=i.f==null
 r=U.a3(C.K5,s?h:i.gU0())
-q=U.a3(C.Kh,s?h:i.gU1())
+q=U.a3(C.Kg,s?h:i.gU1())
 p=U.a3(C.Kz,s?h:i.gU_())
 o=U.a3(C.Kb,s?h:i.gTZ())
 n=U.a3(C.K9,s?h:i.gU5())
-m=U.a3(C.Kf,s?h:i.gU2())
+m=U.a3(C.Ke,s?h:i.gU2())
 l=U.a3(C.K8,s?h:i.gU3())
 k=U.a3(C.hB,s?h:i.ga0c())
 j=U.a3(C.hA,s?h:i.ga0a())
@@ -64495,7 +64495,7 @@ s=m.r==null
 r=U.a3(C.K6,s?l:m.gUa())
 q=U.a3(C.Ka,s?l:m.gU9())
 p=U.a3(C.K1,s?l:m.gUb())
-o=U.a3(C.Kq,s?l:m.gUc())
+o=U.a3(C.Kp,s?l:m.gUc())
 n=U.a3(C.hB,s?l:m.gUj())
 return T.bR(H.a([k,T.k0(E.vQ(T.e4(H.a([T.e4(H.a([j,T.bR(H.a([r,q,p,o,n,U.a3(C.hA,s?l:m.gU7())],i),C.w,C.E,C.n)],i),C.w,C.E,C.n)],i),C.w,C.a9,C.n)),1)],i),C.au,C.a9,C.n)}}
 A.Z4.prototype={
@@ -64530,7 +64530,7 @@ s=1
 break
 case 1:return P.l(q,r)}})
 return P.m($async$tT,r)},
-J:function(a,b){var s=this,r=null,q=T.dB(T.da(Y.dH(u.s,C.ag,C.a7,!0,r,C.bV,C.aa,!1,C.ab,C.V,r,r,r,s.ga0o(),r,r,r,!0,!0,r,!0,!1,!0),200,300),r,r),p=s.d,o=U.a3(C.Kx,p?r:new Q.Zm(s)),n=U.a3(C.Kt,p?new Q.Zn(s):r),m=U.a3(C.Km,p?new Q.Zo(s):r),l=U.a3(C.K2,p?new Q.Zp(s):r),k=t.D
+J:function(a,b){var s=this,r=null,q=T.dB(T.da(Y.dH(u.s,C.ag,C.a7,!0,r,C.bV,C.aa,!1,C.ab,C.V,r,r,r,s.ga0o(),r,r,r,!0,!0,r,!0,!1,!0),200,300),r,r),p=s.d,o=U.a3(C.Kx,p?r:new Q.Zm(s)),n=U.a3(C.Kt,p?new Q.Zn(s):r),m=U.a3(C.Kl,p?new Q.Zo(s):r),l=U.a3(C.K2,p?new Q.Zp(s):r),k=t.D
 return T.bR(H.a([q,T.k0(E.vQ(T.e4(H.a([T.e4(H.a([T.bR(H.a([o,n,m,l,U.a3(C.Kv,p?new Q.Zq(s):r)],k),C.w,C.E,C.n)],k),C.w,C.E,C.n)],k),C.w,C.a9,C.n)),1)],k),C.au,C.a9,C.n)}}
 Q.Zm.prototype={
 $0:function(){var s=this.a
@@ -64736,17 +64736,17 @@ while(true)switch(s){case 0:q.T(0,new E.Ze(q))
 q.d.e8(q.r)
 return P.l(null,r)}})
 return P.m($async$x7,r)},
-J:function(a,b){var s,r,q,p,o,n=this,m=null,l=T.dB(T.da(Y.dH(u.s,C.ag,C.a7,!0,m,C.bV,C.aa,!1,C.ab,C.V,m,m,m,n.ga0u(),m,n.ga0w(),m,!0,!0,m,!0,!1,!0),200,300),m,m),k=U.a3(C.ev,new E.Zr(n)),j=U.a3(C.Kk,new E.Zs(n)),i=U.a3(C.Kp,new E.Zt(n)),h=U.a3(C.ew,n.f==null?m:n.ga0y(n)),g=U.a3(L.bJ((n.r?"disable":"enable")+" icon overlap",m,m,m),n.gUg()),f=t.D
-g=T.bR(H.a([k,j,i,h,g,U.a3(C.Ki,n.e===0?m:n.ga1s()),U.a3(C.K4,new E.Zu(n)),U.a3(C.Kn,new E.Zv(n)),U.a3(C.Ko,new E.Zw(n))],f),C.w,C.E,C.n)
+J:function(a,b){var s,r,q,p,o,n=this,m=null,l=T.dB(T.da(Y.dH(u.s,C.ag,C.a7,!0,m,C.bV,C.aa,!1,C.ab,C.V,m,m,m,n.ga0u(),m,n.ga0w(),m,!0,!0,m,!0,!1,!0),200,300),m,m),k=U.a3(C.ev,new E.Zr(n)),j=U.a3(C.Kj,new E.Zs(n)),i=U.a3(C.Ko,new E.Zt(n)),h=U.a3(C.ew,n.f==null?m:n.ga0y(n)),g=U.a3(L.bJ((n.r?"disable":"enable")+" icon overlap",m,m,m),n.gUg()),f=t.D
+g=T.bR(H.a([k,j,i,h,g,U.a3(C.Kh,n.e===0?m:n.ga1s()),U.a3(C.K4,new E.Zu(n)),U.a3(C.Km,new E.Zv(n)),U.a3(C.Kn,new E.Zw(n))],f),C.w,C.E,C.n)
 k=n.f==null
 j=U.a3(C.lO,k?m:n.ga0q())
 i=U.a3(C.Ku,k?m:n.gUe())
-h=U.a3(C.Kj,k?m:n.gUd())
+h=U.a3(C.Ki,k?m:n.gUd())
 s=U.a3(C.hA,k?m:n.ga2H())
 r=U.a3(C.hB,k?m:n.ga0r())
 q=U.a3(C.Ks,k?m:n.gUl())
 p=U.a3(C.lR,k?m:n.ga0A())
-o=U.a3(C.Kl,k?m:n.gUm())
+o=U.a3(C.Kk,k?m:n.gUm())
 return T.bR(H.a([l,T.k0(E.vQ(T.e4(H.a([T.e4(H.a([g,T.bR(H.a([j,i,h,s,r,q,p,o,U.a3(C.m0,k?m:n.ga0t())],f),C.w,C.E,C.n)],f),C.w,C.E,C.n)],f),C.w,C.a9,C.n)),1)],f),C.au,C.a9,C.n)}}
 E.Zf.prototype={
 $0:function(){this.a.f=this.b},
@@ -70638,11 +70638,11 @@ C.C1=new T.d5(C.pd,C.Kr,null)
 C.j4=new V.bc(0,0,0,12)
 C.K7=new L.aA("This map consumes all touch events.",null,null,null,null)
 C.C2=new T.d5(C.j4,C.K7,null)
-C.Kd=new L.aA("It still gets other gestures (e.g scale or tap).",null,null,null,null)
-C.C3=new T.d5(C.j4,C.Kd,null)
+C.Kc=new L.aA("It still gets other gestures (e.g scale or tap).",null,null,null,null)
+C.C3=new T.d5(C.j4,C.Kc,null)
 C.pb=new V.bc(0,0,0,5)
-C.Kg=new L.aA("This map has polygones (fill) above all other anotations (default behavior)",null,null,null,null)
-C.C4=new T.d5(C.pb,C.Kg,null)
+C.Kf=new L.aA("This map has polygones (fill) above all other anotations (default behavior)",null,null,null,null)
+C.C4=new T.d5(C.pb,C.Kf,null)
 C.aH=new P.DS(0,"PaintingStyle.fill")
 C.Z=new P.DS(1,"PaintingStyle.stroke")
 C.C5=new P.j2(60)
@@ -71074,24 +71074,24 @@ C.lV=new L.aA("zoomBy with focus",null,null,null,null)
 C.Kb=new L.aA("change circle-blur",null,null,null,null)
 C.lW=new L.aA("scrollBy",null,null,null,null)
 C.lX=new L.aA("zoomBy",null,null,null,null)
-C.Kc=new L.aA("MapboxMaps examples",null,null,null,null)
 C.lY=new L.aA("tiltTo",null,null,null,null)
-C.Ke=new L.aA("batch add",null,null,null,null)
-C.Kf=new L.aA("change circle-stroke-color",null,null,null,null)
-C.Kh=new L.aA("change circle-radius",null,null,null,null)
-C.Kj=new L.aA("change icon anchor",null,null,null,null)
-C.Ki=new L.aA("remove all",null,null,null,null)
-C.Kk=new L.aA("add all",null,null,null,null)
+C.Kd=new L.aA("batch add",null,null,null,null)
+C.Ke=new L.aA("change circle-stroke-color",null,null,null,null)
+C.Kg=new L.aA("change circle-radius",null,null,null,null)
+C.Ki=new L.aA("change icon anchor",null,null,null,null)
+C.Kh=new L.aA("remove all",null,null,null,null)
+C.Kj=new L.aA("add all",null,null,null,null)
 C.lZ=new L.aA("newLatLngZoom",null,null,null,null)
 C.m_=new L.aA("zoomIn",null,null,null,null)
-C.Kl=new L.aA("change zIndex",null,null,null,null)
+C.Kk=new L.aA("change zIndex",null,null,null,null)
 C.ev=new L.aA("add",null,null,null,null)
-C.Km=new L.aA("Show layer",null,null,null,null)
-C.Kn=new L.aA("add (network image)",null,null,null,null)
-C.Ko=new L.aA("add (custom font)",null,null,null,null)
-C.Kp=new L.aA("add (custom icon)",null,null,null,null)
+C.Kl=new L.aA("Show layer",null,null,null,null)
+C.Km=new L.aA("add (network image)",null,null,null,null)
+C.Kn=new L.aA("add (custom font)",null,null,null,null)
+C.Ko=new L.aA("add (custom icon)",null,null,null,null)
 C.m0=new L.aA("get current LatLng",null,null,null,null)
-C.Kq=new L.aA("change fill-pattern",null,null,null,null)
+C.Kp=new L.aA("change fill-pattern",null,null,null,null)
+C.Kq=new L.aA("OnHaven Mapbox Demonstration",null,null,null,null)
 C.hA=new L.aA("toggle draggable",null,null,null,null)
 C.hB=new L.aA("change position",null,null,null,null)
 C.Ks=new L.aA("change rotation",null,null,null,null)
