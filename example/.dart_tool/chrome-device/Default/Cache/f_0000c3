@@ -1,0 +1,1810 @@
+define(['dart_sdk', 'packages/mapbox_gl_platform_interface/mapbox_gl_platform_interface.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/foundation/basic_types.dart', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/services/system_channels.dart'], (function load__packages__mapbox_gl__mapbox_gl_dart(dart_sdk, packages__mapbox_gl_platform_interface__mapbox_gl_platform_interface$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__foundation__basic_types$46dart, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__services__system_channels$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const math = dart_sdk.math;
+  const async = dart_sdk.async;
+  const collection = dart_sdk.collection;
+  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const typed_data = dart_sdk.typed_data;
+  const _internal = dart_sdk._internal;
+  const convert = dart_sdk.convert;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const mapbox_gl_platform_interface = packages__mapbox_gl_platform_interface__mapbox_gl_platform_interface$46dart.mapbox_gl_platform_interface;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic_types = packages__flutter__src__foundation__basic_types$46dart.src__foundation__basic_types;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
+  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
+  var mapbox_gl = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $values = dartx.values;
+  var $first = dartx.first;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $_set = dartx._set;
+  var $forEach = dartx.forEach;
+  var $where = dartx.where;
+  var $length = dartx.length;
+  var $keys = dartx.keys;
+  var $clear = dartx.clear;
+  var $contains = dartx.contains;
+  var $removeWhere = dartx.removeWhere;
+  var $remove = dartx.remove;
+  var $isEmpty = dartx.isEmpty;
+  var $runtimeType = dartx.runtimeType;
+  var $toDouble = dartx.toDouble;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    ArgumentCallbacksOfSymbol: () => (T.ArgumentCallbacksOfSymbol = dart.constFn(mapbox_gl_platform_interface.ArgumentCallbacks$(mapbox_gl_platform_interface.Symbol)))(),
+    ArgumentCallbacksOfCircle: () => (T.ArgumentCallbacksOfCircle = dart.constFn(mapbox_gl_platform_interface.ArgumentCallbacks$(mapbox_gl_platform_interface.Circle)))(),
+    ArgumentCallbacksOfFill: () => (T.ArgumentCallbacksOfFill = dart.constFn(mapbox_gl_platform_interface.ArgumentCallbacks$(mapbox_gl_platform_interface.Fill)))(),
+    IdentityMapOfString$Symbol: () => (T.IdentityMapOfString$Symbol = dart.constFn(_js_helper.IdentityMap$(core.String, mapbox_gl_platform_interface.Symbol)))(),
+    ArgumentCallbacksOfLine: () => (T.ArgumentCallbacksOfLine = dart.constFn(mapbox_gl_platform_interface.ArgumentCallbacks$(mapbox_gl_platform_interface.Line)))(),
+    IdentityMapOfString$Line: () => (T.IdentityMapOfString$Line = dart.constFn(_js_helper.IdentityMap$(core.String, mapbox_gl_platform_interface.Line)))(),
+    IdentityMapOfString$Circle: () => (T.IdentityMapOfString$Circle = dart.constFn(_js_helper.IdentityMap$(core.String, mapbox_gl_platform_interface.Circle)))(),
+    IdentityMapOfString$Fill: () => (T.IdentityMapOfString$Fill = dart.constFn(_js_helper.IdentityMap$(core.String, mapbox_gl_platform_interface.Fill)))(),
+    StringTovoid: () => (T.StringTovoid = dart.constFn(dart.fnType(dart.void, [core.String])))(),
+    voidTovoid: () => (T.voidTovoid = dart.constFn(dart.fnType(dart.void, [dart.void])))(),
+    CameraPositionTovoid: () => (T.CameraPositionTovoid = dart.constFn(dart.fnType(dart.void, [mapbox_gl_platform_interface.CameraPosition])))(),
+    CameraPositionN: () => (T.CameraPositionN = dart.constFn(dart.nullable(mapbox_gl_platform_interface.CameraPosition)))(),
+    CameraPositionNTovoid: () => (T.CameraPositionNTovoid = dart.constFn(dart.fnType(dart.void, [T.CameraPositionN()])))(),
+    PointOfdouble: () => (T.PointOfdouble = dart.constFn(math.Point$(core.double)))(),
+    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
+    MapOfString$dynamicTovoid: () => (T.MapOfString$dynamicTovoid = dart.constFn(dart.fnType(dart.void, [T.MapOfString$dynamic()])))(),
+    MyLocationTrackingModeTovoid: () => (T.MyLocationTrackingModeTovoid = dart.constFn(dart.fnType(dart.void, [mapbox_gl_platform_interface.MyLocationTrackingMode])))(),
+    UserLocationTovoid: () => (T.UserLocationTovoid = dart.constFn(dart.fnType(dart.void, [mapbox_gl_platform_interface.UserLocation])))(),
+    LinkedHashSetOfSymbol: () => (T.LinkedHashSetOfSymbol = dart.constFn(collection.LinkedHashSet$(mapbox_gl_platform_interface.Symbol)))(),
+    LinkedHashSetOfLine: () => (T.LinkedHashSetOfLine = dart.constFn(collection.LinkedHashSet$(mapbox_gl_platform_interface.Line)))(),
+    LinkedHashSetOfCircle: () => (T.LinkedHashSetOfCircle = dart.constFn(collection.LinkedHashSet$(mapbox_gl_platform_interface.Circle)))(),
+    LinkedHashSetOfFill: () => (T.LinkedHashSetOfFill = dart.constFn(collection.LinkedHashSet$(mapbox_gl_platform_interface.Fill)))(),
+    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))(),
+    JSArrayOfSymbolOptions: () => (T.JSArrayOfSymbolOptions = dart.constFn(_interceptors.JSArray$(mapbox_gl_platform_interface.SymbolOptions)))(),
+    JSArrayOfMap: () => (T.JSArrayOfMap = dart.constFn(_interceptors.JSArray$(core.Map)))(),
+    SymbolOptionsToSymbolOptions: () => (T.SymbolOptionsToSymbolOptions = dart.constFn(dart.fnType(mapbox_gl_platform_interface.SymbolOptions, [mapbox_gl_platform_interface.SymbolOptions])))(),
+    SymbolTovoid: () => (T.SymbolTovoid = dart.constFn(dart.fnType(dart.void, [mapbox_gl_platform_interface.Symbol])))(),
+    ListOfSymbol: () => (T.ListOfSymbol = dart.constFn(core.List$(mapbox_gl_platform_interface.Symbol)))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    SymbolTobool: () => (T.SymbolTobool = dart.constFn(dart.fnType(core.bool, [mapbox_gl_platform_interface.Symbol])))(),
+    SymbolToString: () => (T.SymbolToString = dart.constFn(dart.fnType(core.String, [mapbox_gl_platform_interface.Symbol])))(),
+    StringAndSymbolTobool: () => (T.StringAndSymbolTobool = dart.constFn(dart.fnType(core.bool, [core.String, mapbox_gl_platform_interface.Symbol])))(),
+    LineTovoid: () => (T.LineTovoid = dart.constFn(dart.fnType(dart.void, [mapbox_gl_platform_interface.Line])))(),
+    ListOfLine: () => (T.ListOfLine = dart.constFn(core.List$(mapbox_gl_platform_interface.Line)))(),
+    ListOfLatLng: () => (T.ListOfLatLng = dart.constFn(core.List$(mapbox_gl_platform_interface.LatLng)))(),
+    LineTobool: () => (T.LineTobool = dart.constFn(dart.fnType(core.bool, [mapbox_gl_platform_interface.Line])))(),
+    LineToString: () => (T.LineToString = dart.constFn(dart.fnType(core.String, [mapbox_gl_platform_interface.Line])))(),
+    ListOfString: () => (T.ListOfString = dart.constFn(core.List$(core.String)))(),
+    CircleTovoid: () => (T.CircleTovoid = dart.constFn(dart.fnType(dart.void, [mapbox_gl_platform_interface.Circle])))(),
+    ListOfCircle: () => (T.ListOfCircle = dart.constFn(core.List$(mapbox_gl_platform_interface.Circle)))(),
+    CircleTobool: () => (T.CircleTobool = dart.constFn(dart.fnType(core.bool, [mapbox_gl_platform_interface.Circle])))(),
+    CircleToString: () => (T.CircleToString = dart.constFn(dart.fnType(core.String, [mapbox_gl_platform_interface.Circle])))(),
+    FillTovoid: () => (T.FillTovoid = dart.constFn(dart.fnType(dart.void, [mapbox_gl_platform_interface.Fill])))(),
+    ListOfFill: () => (T.ListOfFill = dart.constFn(core.List$(mapbox_gl_platform_interface.Fill)))(),
+    FillTobool: () => (T.FillTobool = dart.constFn(dart.fnType(core.bool, [mapbox_gl_platform_interface.Fill])))(),
+    FillToString: () => (T.FillToString = dart.constFn(dart.fnType(core.String, [mapbox_gl_platform_interface.Fill])))(),
+    LatLngN: () => (T.LatLngN = dart.constFn(dart.nullable(mapbox_gl_platform_interface.LatLng)))(),
+    PointOfnum: () => (T.PointOfnum = dart.constFn(math.Point$(core.num)))(),
+    ListOfPointOfnum: () => (T.ListOfPointOfnum = dart.constFn(core.List$(T.PointOfnum())))(),
+    CompleterOfMapboxMapController: () => (T.CompleterOfMapboxMapController = dart.constFn(async.Completer$(mapbox_gl.MapboxMapController)))(),
+    AnnotationTypeToString: () => (T.AnnotationTypeToString = dart.constFn(dart.fnType(core.String, [mapbox_gl.AnnotationType])))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    MapboxMapControllerToNull: () => (T.MapboxMapControllerToNull = dart.constFn(dart.fnType(core.Null, [mapbox_gl.MapboxMapController])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    StringAnddynamicTovoid: () => (T.StringAnddynamicTovoid = dart.constFn(dart.fnType(dart.void, [core.String, dart.dynamic])))(),
+    ListN: () => (T.ListN = dart.constFn(dart.nullable(core.List)))(),
+    PointNOfnum: () => (T.PointNOfnum = dart.constFn(dart.nullable(T.PointOfnum())))(),
+    PointNOfnumToListN: () => (T.PointNOfnumToListN = dart.constFn(dart.fnType(T.ListN(), [T.PointNOfnum()])))(),
+    StringAnddynamicTobool: () => (T.StringAnddynamicTobool = dart.constFn(dart.fnType(core.bool, [core.String, dart.dynamic])))(),
+    LinkedMapOfString$dynamic: () => (T.LinkedMapOfString$dynamic = dart.constFn(_js_helper.LinkedMap$(core.String, dart.dynamic)))(),
+    dynamicToOfflineRegion: () => (T.dynamicToOfflineRegion = dart.constFn(dart.fnType(mapbox_gl.OfflineRegion, [dart.dynamic])))(),
+    ListOfOfflineRegion: () => (T.ListOfOfflineRegion = dart.constFn(core.List$(mapbox_gl.OfflineRegion)))(),
+    dynamicToError: () => (T.dynamicToError = dart.constFn(dart.fnType(mapbox_gl.Error, [dart.dynamic])))(),
+    dynamicTovoid: () => (T.dynamicTovoid = dart.constFn(dart.fnType(dart.void, [dart.dynamic])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: mapbox_gl.AnnotationType.prototype,
+        [_name$]: "AnnotationType.fill",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: mapbox_gl.AnnotationType.prototype,
+        [_name$]: "AnnotationType.line",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: mapbox_gl.AnnotationType.prototype,
+        [_name$]: "AnnotationType.circle",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: mapbox_gl.AnnotationType.prototype,
+        [_name$]: "AnnotationType.symbol",
+        index: 3
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], mapbox_gl.AnnotationType);
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: mapbox_gl_platform_interface.CameraTargetBounds.prototype,
+        [CameraTargetBounds_bounds]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: mapbox_gl_platform_interface.MinMaxZoomPreference.prototype,
+        [MinMaxZoomPreference_maxZoom]: null,
+        [MinMaxZoomPreference_minZoom]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: mapbox_gl_platform_interface.MyLocationTrackingMode.prototype,
+        [_name]: "MyLocationTrackingMode.None",
+        index: 0
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: mapbox_gl_platform_interface.MyLocationRenderMode.prototype,
+        [_name]: "MyLocationRenderMode.COMPASS",
+        index: 1
+      });
+    },
+    get C9() {
+      return C[9] = dart.constList([C[1] || CT.C1, C[3] || CT.C3, C[2] || CT.C2, C[0] || CT.C0], mapbox_gl.AnnotationType);
+    },
+    get C10() {
+      return C[10] = dart.constList([C[3] || CT.C3, C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], mapbox_gl.AnnotationType);
+    },
+    get C11() {
+      return C[11] = dart.constMap(core.String, dart.dynamic, []);
+    }
+  }, false);
+  var C = Array(12).fill(void 0);
+  var I = [
+    "file:///C:/Users/Lukas/Projekte/OnHaven/flutter-mapbox-gl/lib/src/controller.dart",
+    "package:mapbox_gl/mapbox_gl.dart",
+    "file:///C:/Users/Lukas/Projekte/OnHaven/flutter-mapbox-gl/lib/src/mapbox_map.dart"
+  ];
+  var onStyleLoadedCallback$ = dart.privateName(mapbox_gl, "MapboxMapController.onStyleLoadedCallback");
+  var onMapClick$ = dart.privateName(mapbox_gl, "MapboxMapController.onMapClick");
+  var onMapLongClick$ = dart.privateName(mapbox_gl, "MapboxMapController.onMapLongClick");
+  var onUserLocationUpdated$ = dart.privateName(mapbox_gl, "MapboxMapController.onUserLocationUpdated");
+  var onAttributionClick$ = dart.privateName(mapbox_gl, "MapboxMapController.onAttributionClick");
+  var onCameraTrackingDismissed$ = dart.privateName(mapbox_gl, "MapboxMapController.onCameraTrackingDismissed");
+  var onCameraTrackingChanged$ = dart.privateName(mapbox_gl, "MapboxMapController.onCameraTrackingChanged");
+  var onCameraIdle$ = dart.privateName(mapbox_gl, "MapboxMapController.onCameraIdle");
+  var onMapIdle$ = dart.privateName(mapbox_gl, "MapboxMapController.onMapIdle");
+  var onSymbolTapped = dart.privateName(mapbox_gl, "MapboxMapController.onSymbolTapped");
+  var onCircleTapped = dart.privateName(mapbox_gl, "MapboxMapController.onCircleTapped");
+  var onFillTapped = dart.privateName(mapbox_gl, "MapboxMapController.onFillTapped");
+  var onInfoWindowTapped = dart.privateName(mapbox_gl, "MapboxMapController.onInfoWindowTapped");
+  var onLineTapped = dart.privateName(mapbox_gl, "MapboxMapController.onLineTapped");
+  var _symbols = dart.privateName(mapbox_gl, "_symbols");
+  var _lines = dart.privateName(mapbox_gl, "_lines");
+  var _circles = dart.privateName(mapbox_gl, "_circles");
+  var _fills = dart.privateName(mapbox_gl, "_fills");
+  var _isCameraMoving = dart.privateName(mapbox_gl, "_isCameraMoving");
+  var _cameraPosition = dart.privateName(mapbox_gl, "_cameraPosition");
+  var _id$ = dart.privateName(mapbox_gl, "_id");
+  var _updateMapOptions = dart.privateName(mapbox_gl, "_updateMapOptions");
+  var _removeSymbols = dart.privateName(mapbox_gl, "_removeSymbols");
+  mapbox_gl.MapboxMapController = class MapboxMapController extends change_notifier.ChangeNotifier {
+    get onStyleLoadedCallback() {
+      return this[onStyleLoadedCallback$];
+    }
+    set onStyleLoadedCallback(value) {
+      super.onStyleLoadedCallback = value;
+    }
+    get onMapClick() {
+      return this[onMapClick$];
+    }
+    set onMapClick(value) {
+      super.onMapClick = value;
+    }
+    get onMapLongClick() {
+      return this[onMapLongClick$];
+    }
+    set onMapLongClick(value) {
+      super.onMapLongClick = value;
+    }
+    get onUserLocationUpdated() {
+      return this[onUserLocationUpdated$];
+    }
+    set onUserLocationUpdated(value) {
+      super.onUserLocationUpdated = value;
+    }
+    get onAttributionClick() {
+      return this[onAttributionClick$];
+    }
+    set onAttributionClick(value) {
+      super.onAttributionClick = value;
+    }
+    get onCameraTrackingDismissed() {
+      return this[onCameraTrackingDismissed$];
+    }
+    set onCameraTrackingDismissed(value) {
+      super.onCameraTrackingDismissed = value;
+    }
+    get onCameraTrackingChanged() {
+      return this[onCameraTrackingChanged$];
+    }
+    set onCameraTrackingChanged(value) {
+      super.onCameraTrackingChanged = value;
+    }
+    get onCameraIdle() {
+      return this[onCameraIdle$];
+    }
+    set onCameraIdle(value) {
+      super.onCameraIdle = value;
+    }
+    get onMapIdle() {
+      return this[onMapIdle$];
+    }
+    set onMapIdle(value) {
+      super.onMapIdle = value;
+    }
+    get onSymbolTapped() {
+      return this[onSymbolTapped];
+    }
+    set onSymbolTapped(value) {
+      super.onSymbolTapped = value;
+    }
+    get onCircleTapped() {
+      return this[onCircleTapped];
+    }
+    set onCircleTapped(value) {
+      super.onCircleTapped = value;
+    }
+    get onFillTapped() {
+      return this[onFillTapped];
+    }
+    set onFillTapped(value) {
+      super.onFillTapped = value;
+    }
+    get onInfoWindowTapped() {
+      return this[onInfoWindowTapped];
+    }
+    set onInfoWindowTapped(value) {
+      super.onInfoWindowTapped = value;
+    }
+    get onLineTapped() {
+      return this[onLineTapped];
+    }
+    set onLineTapped(value) {
+      super.onLineTapped = value;
+    }
+    static init(id, initialCameraPosition, opts) {
+      let onStyleLoadedCallback = opts && 'onStyleLoadedCallback' in opts ? opts.onStyleLoadedCallback : null;
+      let onMapClick = opts && 'onMapClick' in opts ? opts.onMapClick : null;
+      let onUserLocationUpdated = opts && 'onUserLocationUpdated' in opts ? opts.onUserLocationUpdated : null;
+      let onMapLongClick = opts && 'onMapLongClick' in opts ? opts.onMapLongClick : null;
+      let onAttributionClick = opts && 'onAttributionClick' in opts ? opts.onAttributionClick : null;
+      let onCameraTrackingDismissed = opts && 'onCameraTrackingDismissed' in opts ? opts.onCameraTrackingDismissed : null;
+      let onCameraTrackingChanged = opts && 'onCameraTrackingChanged' in opts ? opts.onCameraTrackingChanged : null;
+      let onCameraIdle = opts && 'onCameraIdle' in opts ? opts.onCameraIdle : null;
+      let onMapIdle = opts && 'onMapIdle' in opts ? opts.onMapIdle : null;
+      return new mapbox_gl.MapboxMapController.__(id, initialCameraPosition, {onStyleLoadedCallback: onStyleLoadedCallback, onMapClick: onMapClick, onUserLocationUpdated: onUserLocationUpdated, onMapLongClick: onMapLongClick, onAttributionClick: onAttributionClick, onCameraTrackingDismissed: onCameraTrackingDismissed, onCameraTrackingChanged: onCameraTrackingChanged, onCameraIdle: onCameraIdle, onMapIdle: onMapIdle});
+    }
+    static initPlatform(id) {
+      return async.async(dart.void, function* initPlatform() {
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(id).initPlatform(id);
+      });
+    }
+    get symbols() {
+      return T.LinkedHashSetOfSymbol().from(this[_symbols][$values]);
+    }
+    get lines() {
+      return T.LinkedHashSetOfLine().from(this[_lines][$values]);
+    }
+    get circles() {
+      return T.LinkedHashSetOfCircle().from(this[_circles][$values]);
+    }
+    get fills() {
+      return T.LinkedHashSetOfFill().from(this[_fills][$values]);
+    }
+    get isCameraMoving() {
+      return this[_isCameraMoving];
+    }
+    get cameraPosition() {
+      return this[_cameraPosition];
+    }
+    buildView(creationParams, onPlatformViewCreated, gestureRecognizers) {
+      return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).buildView(creationParams, onPlatformViewCreated, gestureRecognizers);
+    }
+    [_updateMapOptions](optionsUpdate) {
+      return async.async(dart.void, (function* _updateMapOptions() {
+        this[_cameraPosition] = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).updateMapOptions(optionsUpdate));
+        this.notifyListeners();
+      }).bind(this));
+    }
+    animateCamera(cameraUpdate) {
+      return async.async(T.boolN(), (function* animateCamera() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).animateCamera(cameraUpdate);
+      }).bind(this));
+    }
+    moveCamera(cameraUpdate) {
+      return async.async(T.boolN(), (function* moveCamera() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).moveCamera(cameraUpdate);
+      }).bind(this));
+    }
+    updateMyLocationTrackingMode(myLocationTrackingMode) {
+      return async.async(dart.void, (function* updateMyLocationTrackingMode() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).updateMyLocationTrackingMode(myLocationTrackingMode);
+      }).bind(this));
+    }
+    matchMapLanguageWithDeviceDefault() {
+      return async.async(dart.void, (function* matchMapLanguageWithDeviceDefault() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).matchMapLanguageWithDeviceDefault();
+      }).bind(this));
+    }
+    updateContentInsets(insets, animated = false) {
+      return async.async(dart.void, (function* updateContentInsets() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).updateContentInsets(insets, animated);
+      }).bind(this));
+    }
+    setMapLanguage(language) {
+      return async.async(dart.void, (function* setMapLanguage() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).setMapLanguage(language);
+      }).bind(this));
+    }
+    setTelemetryEnabled(enabled) {
+      return async.async(dart.void, (function* setTelemetryEnabled() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).setTelemetryEnabled(enabled);
+      }).bind(this));
+    }
+    getTelemetryEnabled() {
+      return async.async(core.bool, (function* getTelemetryEnabled() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).getTelemetryEnabled();
+      }).bind(this));
+    }
+    addSymbol(options, data = null) {
+      return async.async(mapbox_gl_platform_interface.Symbol, (function* addSymbol() {
+        let result = (yield this.addSymbols(T.JSArrayOfSymbolOptions().of([options]), data != null ? T.JSArrayOfMap().of([data]) : T.JSArrayOfMap().of([])));
+        return result[$first];
+      }).bind(this));
+    }
+    addSymbols(options, data = null) {
+      return async.async(T.ListOfSymbol(), (function* addSymbols() {
+        let effectiveOptions = options[$map](mapbox_gl_platform_interface.SymbolOptions, dart.fn(o => mapbox_gl_platform_interface.SymbolOptions.defaultOptions.copyWith(o), T.SymbolOptionsToSymbolOptions()))[$toList]();
+        let symbols = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addSymbols(effectiveOptions, data));
+        symbols[$forEach](dart.fn(s => {
+          let t2, t1, t0;
+          t0 = this[_symbols];
+          t1 = s.id;
+          t2 = s;
+          t0[$_set](t1, t2);
+          return t2;
+        }, T.SymbolTovoid()));
+        this.notifyListeners();
+        return symbols;
+      }).bind(this));
+    }
+    updateSymbol(symbol, changes) {
+      return async.async(dart.void, (function* updateSymbol() {
+        if (!dart.equals(this[_symbols][$_get](symbol.id), symbol)) dart.assertFailed(null, I[0], 401, 12, "_symbols[symbol.id] == symbol");
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).updateSymbol(symbol, changes);
+        symbol.options = symbol.options.copyWith(changes);
+        this.notifyListeners();
+      }).bind(this));
+    }
+    getSymbolLatLng(symbol) {
+      return async.async(mapbox_gl_platform_interface.LatLng, (function* getSymbolLatLng() {
+        if (!dart.equals(this[_symbols][$_get](symbol.id), symbol)) dart.assertFailed(null, I[0], 412, 12, "_symbols[symbol.id] == symbol");
+        let symbolLatLng = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).getSymbolLatLng(symbol));
+        this.notifyListeners();
+        return symbolLatLng;
+      }).bind(this));
+    }
+    removeSymbol(symbol) {
+      return async.async(dart.void, (function* removeSymbol() {
+        if (!dart.equals(this[_symbols][$_get](symbol.id), symbol)) dart.assertFailed(null, I[0], 427, 12, "_symbols[symbol.id] == symbol");
+        yield this[_removeSymbols](T.JSArrayOfString().of([symbol.id]));
+        this.notifyListeners();
+      }).bind(this));
+    }
+    removeSymbols(symbols) {
+      return async.async(dart.void, (function* removeSymbols() {
+        let ids = symbols[$where](dart.fn(s => dart.equals(this[_symbols][$_get](s.id), s), T.SymbolTobool()))[$map](core.String, dart.fn(s => s.id, T.SymbolToString()));
+        if (!(symbols[$length] === ids[$length])) dart.assertFailed(null, I[0], 441, 12, "symbols.length == ids.length");
+        yield this[_removeSymbols](ids);
+        this.notifyListeners();
+      }).bind(this));
+    }
+    clearSymbols() {
+      return async.async(dart.void, (function* clearSymbols() {
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeSymbols(this[_symbols][$keys]);
+        this[_symbols][$clear]();
+        this.notifyListeners();
+      }).bind(this));
+    }
+    [_removeSymbols](ids) {
+      return async.async(dart.void, (function* _removeSymbols() {
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeSymbols(ids);
+        this[_symbols][$removeWhere](dart.fn((k, s) => ids[$contains](k), T.StringAndSymbolTobool()));
+      }).bind(this));
+    }
+    addLine(options, data = null) {
+      return async.async(mapbox_gl_platform_interface.Line, (function* addLine() {
+        let effectiveOptions = mapbox_gl_platform_interface.LineOptions.defaultOptions.copyWith(options);
+        let line = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addLine(effectiveOptions, data));
+        this[_lines][$_set](line.id, line);
+        this.notifyListeners();
+        return line;
+      }).bind(this));
+    }
+    addLines(options, data = null) {
+      return async.async(T.ListOfLine(), (function* addLines() {
+        let lines = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addLines(options, data));
+        lines[$forEach](dart.fn(l => {
+          let t2, t1, t0;
+          t0 = this[_lines];
+          t1 = l.id;
+          t2 = l;
+          t0[$_set](t1, t2);
+          return t2;
+        }, T.LineTovoid()));
+        this.notifyListeners();
+        return lines;
+      }).bind(this));
+    }
+    updateLine(line, changes) {
+      return async.async(dart.void, (function* updateLine() {
+        if (!dart.equals(this[_lines][$_get](line.id), line)) dart.assertFailed(null, I[0], 510, 12, "_lines[line.id] == line");
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).updateLine(line, changes);
+        line.options = line.options.copyWith(changes);
+        this.notifyListeners();
+      }).bind(this));
+    }
+    getLineLatLngs(line) {
+      return async.async(T.ListOfLatLng(), (function* getLineLatLngs() {
+        if (!dart.equals(this[_lines][$_get](line.id), line)) dart.assertFailed(null, I[0], 520, 12, "_lines[line.id] == line");
+        let lineLatLngs = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).getLineLatLngs(line));
+        this.notifyListeners();
+        return lineLatLngs;
+      }).bind(this));
+    }
+    removeLine(line) {
+      return async.async(dart.void, (function* removeLine() {
+        if (!dart.equals(this[_lines][$_get](line.id), line)) dart.assertFailed(null, I[0], 535, 12, "_lines[line.id] == line");
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeLine(line.id);
+        this[_lines][$remove](line.id);
+        this.notifyListeners();
+      }).bind(this));
+    }
+    removeLines(lines) {
+      return async.async(dart.void, (function* removeLines() {
+        let ids = lines[$where](dart.fn(l => dart.equals(this[_lines][$_get](l.id), l), T.LineTobool()))[$map](core.String, dart.fn(l => l.id, T.LineToString()));
+        if (!(lines[$length] === ids[$length])) dart.assertFailed(null, I[0], 551, 12, "lines.length == ids.length");
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeLines(ids);
+        ids[$forEach](dart.fn(id => this[_lines][$remove](id), T.StringTovoid()));
+        this.notifyListeners();
+      }).bind(this));
+    }
+    clearLines() {
+      return async.async(dart.void, (function* clearLines() {
+        let lineIds = T.ListOfString().from(this[_lines][$keys]);
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeLines(lineIds);
+        this[_lines][$clear]();
+        this.notifyListeners();
+      }).bind(this));
+    }
+    addCircle(options, data = null) {
+      return async.async(mapbox_gl_platform_interface.Circle, (function* addCircle() {
+        let effectiveOptions = mapbox_gl_platform_interface.CircleOptions.defaultOptions.copyWith(options);
+        let circle = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addCircle(effectiveOptions, data));
+        this[_circles][$_set](circle.id, circle);
+        this.notifyListeners();
+        return circle;
+      }).bind(this));
+    }
+    addCircles(options, data = null) {
+      return async.async(T.ListOfCircle(), (function* addCircles() {
+        let circles = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addCircles(options, data));
+        circles[$forEach](dart.fn(c => {
+          let t2, t1, t0;
+          t0 = this[_circles];
+          t1 = c.id;
+          t2 = c;
+          t0[$_set](t1, t2);
+          return t2;
+        }, T.CircleTovoid()));
+        this.notifyListeners();
+        return circles;
+      }).bind(this));
+    }
+    updateCircle(circle, changes) {
+      return async.async(dart.void, (function* updateCircle() {
+        if (!dart.equals(this[_circles][$_get](circle.id), circle)) dart.assertFailed(null, I[0], 613, 12, "_circles[circle.id] == circle");
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).updateCircle(circle, changes);
+        circle.options = circle.options.copyWith(changes);
+        this.notifyListeners();
+      }).bind(this));
+    }
+    getCircleLatLng(circle) {
+      return async.async(mapbox_gl_platform_interface.LatLng, (function* getCircleLatLng() {
+        if (!dart.equals(this[_circles][$_get](circle.id), circle)) dart.assertFailed(null, I[0], 623, 12, "_circles[circle.id] == circle");
+        let circleLatLng = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).getCircleLatLng(circle));
+        this.notifyListeners();
+        return circleLatLng;
+      }).bind(this));
+    }
+    removeCircle(circle) {
+      return async.async(dart.void, (function* removeCircle() {
+        if (!dart.equals(this[_circles][$_get](circle.id), circle)) dart.assertFailed(null, I[0], 638, 12, "_circles[circle.id] == circle");
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeCircle(circle.id);
+        this[_circles][$remove](circle.id);
+        this.notifyListeners();
+      }).bind(this));
+    }
+    removeCircles(circles) {
+      return async.async(dart.void, (function* removeCircles() {
+        let ids = circles[$where](dart.fn(c => dart.equals(this[_circles][$_get](c.id), c), T.CircleTobool()))[$map](core.String, dart.fn(c => c.id, T.CircleToString()));
+        if (!(circles[$length] === ids[$length])) dart.assertFailed(null, I[0], 655, 12, "circles.length == ids.length");
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeCircles(ids);
+        ids[$forEach](dart.fn(id => this[_circles][$remove](id), T.StringTovoid()));
+        this.notifyListeners();
+      }).bind(this));
+    }
+    clearCircles() {
+      return async.async(dart.void, (function* clearCircles() {
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeCircles(this[_circles][$keys]);
+        this[_circles][$clear]();
+        this.notifyListeners();
+      }).bind(this));
+    }
+    addFill(options, data = null) {
+      return async.async(mapbox_gl_platform_interface.Fill, (function* addFill() {
+        let effectiveOptions = mapbox_gl_platform_interface.FillOptions.defaultOptions.copyWith(options);
+        let fill = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addFill(effectiveOptions, data));
+        this[_fills][$_set](fill.id, fill);
+        this.notifyListeners();
+        return fill;
+      }).bind(this));
+    }
+    addFills(options, data = null) {
+      return async.async(T.ListOfFill(), (function* addFills() {
+        let circles = (yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addFills(options, data));
+        circles[$forEach](dart.fn(f => {
+          let t2, t1, t0;
+          t0 = this[_fills];
+          t1 = f.id;
+          t2 = f;
+          t0[$_set](t1, t2);
+          return t2;
+        }, T.FillTovoid()));
+        this.notifyListeners();
+        return circles;
+      }).bind(this));
+    }
+    updateFill(fill, changes) {
+      return async.async(dart.void, (function* updateFill() {
+        if (!dart.equals(this[_fills][$_get](fill.id), fill)) dart.assertFailed(null, I[0], 717, 12, "_fills[fill.id] == fill");
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).updateFill(fill, changes);
+        fill.options = fill.options.copyWith(changes);
+        this.notifyListeners();
+      }).bind(this));
+    }
+    clearFills() {
+      return async.async(dart.void, (function* clearFills() {
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeFills(this[_fills][$keys]);
+        this[_fills][$clear]();
+        this.notifyListeners();
+      }).bind(this));
+    }
+    removeFill(fill) {
+      return async.async(dart.void, (function* removeFill() {
+        if (!dart.equals(this[_fills][$_get](fill.id), fill)) dart.assertFailed(null, I[0], 744, 12, "_fills[fill.id] == fill");
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeFill(fill.id);
+        this[_fills][$remove](fill.id);
+        this.notifyListeners();
+      }).bind(this));
+    }
+    removeFills(fills) {
+      return async.async(dart.void, (function* removeFills() {
+        let ids = fills[$where](dart.fn(f => dart.equals(this[_fills][$_get](f.id), f), T.FillTobool()))[$map](core.String, dart.fn(f => f.id, T.FillToString()));
+        if (!(fills[$length] === ids[$length])) dart.assertFailed(null, I[0], 760, 12, "fills.length == ids.length");
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeFills(ids);
+        ids[$forEach](dart.fn(id => this[_fills][$remove](id), T.StringTovoid()));
+        this.notifyListeners();
+      }).bind(this));
+    }
+    queryRenderedFeatures(point, layerIds, filter) {
+      return async.async(core.List, (function* queryRenderedFeatures() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).queryRenderedFeatures(point, layerIds, filter);
+      }).bind(this));
+    }
+    queryRenderedFeaturesInRect(rect, layerIds, filter) {
+      return async.async(core.List, (function* queryRenderedFeaturesInRect() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).queryRenderedFeaturesInRect(rect, layerIds, filter);
+      }).bind(this));
+    }
+    invalidateAmbientCache() {
+      return async.async(dart.dynamic, (function* invalidateAmbientCache() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).invalidateAmbientCache();
+      }).bind(this));
+    }
+    requestMyLocationLatLng() {
+      return async.async(T.LatLngN(), (function* requestMyLocationLatLng() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).requestMyLocationLatLng();
+      }).bind(this));
+    }
+    getVisibleRegion() {
+      return async.async(mapbox_gl_platform_interface.LatLngBounds, (function* getVisibleRegion() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).getVisibleRegion();
+      }).bind(this));
+    }
+    addImage(name, bytes, sdf = false) {
+      return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addImage(name, bytes, sdf);
+    }
+    setSymbolIconAllowOverlap(enable) {
+      return async.async(dart.void, (function* setSymbolIconAllowOverlap() {
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).setSymbolIconAllowOverlap(enable);
+      }).bind(this));
+    }
+    setSymbolIconIgnorePlacement(enable) {
+      return async.async(dart.void, (function* setSymbolIconIgnorePlacement() {
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).setSymbolIconIgnorePlacement(enable);
+      }).bind(this));
+    }
+    setSymbolTextAllowOverlap(enable) {
+      return async.async(dart.void, (function* setSymbolTextAllowOverlap() {
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).setSymbolTextAllowOverlap(enable);
+      }).bind(this));
+    }
+    setSymbolTextIgnorePlacement(enable) {
+      return async.async(dart.void, (function* setSymbolTextIgnorePlacement() {
+        yield mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).setSymbolTextIgnorePlacement(enable);
+      }).bind(this));
+    }
+    addImageSource(imageSourceId, bytes, coordinates) {
+      return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addImageSource(imageSourceId, bytes, coordinates);
+    }
+    removeImageSource(imageSourceId) {
+      return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeImageSource(imageSourceId);
+    }
+    addLayer(imageLayerId, imageSourceId) {
+      return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addLayer(imageLayerId, imageSourceId);
+    }
+    addLayerBelow(imageLayerId, imageSourceId, belowLayerId) {
+      return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).addLayerBelow(imageLayerId, imageSourceId, belowLayerId);
+    }
+    removeLayer(imageLayerId) {
+      return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).removeLayer(imageLayerId);
+    }
+    toScreenLocation(latLng) {
+      return async.async(T.PointOfnum(), (function* toScreenLocation() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).toScreenLocation(latLng);
+      }).bind(this));
+    }
+    toScreenLocationBatch(latLngs) {
+      return async.async(T.ListOfPointOfnum(), (function* toScreenLocationBatch() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).toScreenLocationBatch(latLngs);
+      }).bind(this));
+    }
+    toLatLng(screenLocation) {
+      return async.async(mapbox_gl_platform_interface.LatLng, (function* toLatLng() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).toLatLng(screenLocation);
+      }).bind(this));
+    }
+    getMetersPerPixelAtLatitude(latitude) {
+      return async.async(core.double, (function* getMetersPerPixelAtLatitude() {
+        return mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).getMetersPerPixelAtLatitude(latitude);
+      }).bind(this));
+    }
+  };
+  (mapbox_gl.MapboxMapController.__ = function(_id, initialCameraPosition, opts) {
+    let onStyleLoadedCallback = opts && 'onStyleLoadedCallback' in opts ? opts.onStyleLoadedCallback : null;
+    let onMapClick = opts && 'onMapClick' in opts ? opts.onMapClick : null;
+    let onMapLongClick = opts && 'onMapLongClick' in opts ? opts.onMapLongClick : null;
+    let onAttributionClick = opts && 'onAttributionClick' in opts ? opts.onAttributionClick : null;
+    let onCameraTrackingDismissed = opts && 'onCameraTrackingDismissed' in opts ? opts.onCameraTrackingDismissed : null;
+    let onCameraTrackingChanged = opts && 'onCameraTrackingChanged' in opts ? opts.onCameraTrackingChanged : null;
+    let onMapIdle = opts && 'onMapIdle' in opts ? opts.onMapIdle : null;
+    let onUserLocationUpdated = opts && 'onUserLocationUpdated' in opts ? opts.onUserLocationUpdated : null;
+    let onCameraIdle = opts && 'onCameraIdle' in opts ? opts.onCameraIdle : null;
+    this[onSymbolTapped] = new (T.ArgumentCallbacksOfSymbol()).new();
+    this[onCircleTapped] = new (T.ArgumentCallbacksOfCircle()).new();
+    this[onFillTapped] = new (T.ArgumentCallbacksOfFill()).new();
+    this[onInfoWindowTapped] = new (T.ArgumentCallbacksOfSymbol()).new();
+    this[_symbols] = new (T.IdentityMapOfString$Symbol()).new();
+    this[onLineTapped] = new (T.ArgumentCallbacksOfLine()).new();
+    this[_lines] = new (T.IdentityMapOfString$Line()).new();
+    this[_circles] = new (T.IdentityMapOfString$Circle()).new();
+    this[_fills] = new (T.IdentityMapOfString$Fill()).new();
+    this[_isCameraMoving] = false;
+    this[_cameraPosition] = null;
+    this[_id$] = _id;
+    this[onStyleLoadedCallback$] = onStyleLoadedCallback;
+    this[onMapClick$] = onMapClick;
+    this[onMapLongClick$] = onMapLongClick;
+    this[onAttributionClick$] = onAttributionClick;
+    this[onCameraTrackingDismissed$] = onCameraTrackingDismissed;
+    this[onCameraTrackingChanged$] = onCameraTrackingChanged;
+    this[onMapIdle$] = onMapIdle;
+    this[onUserLocationUpdated$] = onUserLocationUpdated;
+    this[onCameraIdle$] = onCameraIdle;
+    mapbox_gl.MapboxMapController.__proto__.new.call(this);
+    this[_cameraPosition] = initialCameraPosition;
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onInfoWindowTappedPlatform.add(dart.fn(symbolId => {
+      let t0;
+      let symbol = this[_symbols][$_get](symbolId);
+      if (symbol != null) {
+        t0 = symbol;
+        this.onInfoWindowTapped.call(t0);
+      }
+    }, T.StringTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onSymbolTappedPlatform.add(dart.fn(symbolId => {
+      let t0;
+      let symbol = this[_symbols][$_get](symbolId);
+      if (symbol != null) {
+        t0 = symbol;
+        this.onSymbolTapped.call(t0);
+      }
+    }, T.StringTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onLineTappedPlatform.add(dart.fn(lineId => {
+      let t0;
+      let line = this[_lines][$_get](lineId);
+      if (line != null) {
+        t0 = line;
+        this.onLineTapped.call(t0);
+      }
+    }, T.StringTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onCircleTappedPlatform.add(dart.fn(circleId => {
+      let t0;
+      let circle = this[_circles][$_get](circleId);
+      if (circle != null) {
+        t0 = circle;
+        this.onCircleTapped.call(t0);
+      }
+    }, T.StringTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onFillTappedPlatform.add(dart.fn(fillId => {
+      let t0;
+      let fill = this[_fills][$_get](fillId);
+      if (fill != null) {
+        t0 = fill;
+        this.onFillTapped.call(t0);
+      }
+    }, T.StringTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onCameraMoveStartedPlatform.add(dart.fn(_ => {
+      this[_isCameraMoving] = true;
+      this.notifyListeners();
+    }, T.voidTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onCameraMovePlatform.add(dart.fn(cameraPosition => {
+      this[_cameraPosition] = cameraPosition;
+      this.notifyListeners();
+    }, T.CameraPositionTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onCameraIdlePlatform.add(dart.fn(cameraPosition => {
+      this[_isCameraMoving] = false;
+      if (cameraPosition != null) {
+        this[_cameraPosition] = cameraPosition;
+      }
+      if (this.onCameraIdle != null) {
+        dart.nullCheck(this.onCameraIdle)();
+      }
+      this.notifyListeners();
+    }, T.CameraPositionNTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onMapStyleLoadedPlatform.add(dart.fn(_ => {
+      if (this.onStyleLoadedCallback != null) {
+        dart.nullCheck(this.onStyleLoadedCallback)();
+      }
+    }, T.voidTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onMapClickPlatform.add(dart.fn(dict => {
+      if (this.onMapClick != null) {
+        dart.nullCheck(this.onMapClick)(T.PointOfdouble().as(dict[$_get]("point")), mapbox_gl_platform_interface.LatLng.as(dict[$_get]("latLng")));
+      }
+    }, T.MapOfString$dynamicTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onMapLongClickPlatform.add(dart.fn(dict => {
+      if (this.onMapLongClick != null) {
+        dart.nullCheck(this.onMapLongClick)(T.PointOfdouble().as(dict[$_get]("point")), mapbox_gl_platform_interface.LatLng.as(dict[$_get]("latLng")));
+      }
+    }, T.MapOfString$dynamicTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onAttributionClickPlatform.add(dart.fn(_ => {
+      if (this.onAttributionClick != null) {
+        dart.nullCheck(this.onAttributionClick)();
+      }
+    }, T.voidTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onCameraTrackingChangedPlatform.add(dart.fn(mode => {
+      if (this.onCameraTrackingChanged != null) {
+        dart.nullCheck(this.onCameraTrackingChanged)(mode);
+      }
+    }, T.MyLocationTrackingModeTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onCameraTrackingDismissedPlatform.add(dart.fn(_ => {
+      if (this.onCameraTrackingDismissed != null) {
+        dart.nullCheck(this.onCameraTrackingDismissed)();
+      }
+    }, T.voidTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onMapIdlePlatform.add(dart.fn(_ => {
+      if (this.onMapIdle != null) {
+        dart.nullCheck(this.onMapIdle)();
+      }
+    }, T.voidTovoid()));
+    mapbox_gl_platform_interface.MapboxGlPlatform.getInstance(this[_id$]).onUserLocationUpdatedPlatform.add(dart.fn(location => {
+      let t0;
+      t0 = this.onUserLocationUpdated;
+      t0 == null ? null : t0(location);
+    }, T.UserLocationTovoid()));
+  }).prototype = mapbox_gl.MapboxMapController.prototype;
+  dart.addTypeTests(mapbox_gl.MapboxMapController);
+  dart.addTypeCaches(mapbox_gl.MapboxMapController);
+  dart.setMethodSignature(mapbox_gl.MapboxMapController, () => ({
+    __proto__: dart.getMethods(mapbox_gl.MapboxMapController.__proto__),
+    buildView: dart.fnType(framework.Widget, [core.Map$(core.String, dart.dynamic), dart.fnType(dart.void, [core.int]), core.Set$(basic_types.Factory$(recognizer.OneSequenceGestureRecognizer))]),
+    [_updateMapOptions]: dart.fnType(async.Future$(dart.void), [core.Map$(core.String, dart.dynamic)]),
+    animateCamera: dart.fnType(async.Future$(dart.nullable(core.bool)), [mapbox_gl_platform_interface.CameraUpdate]),
+    moveCamera: dart.fnType(async.Future$(dart.nullable(core.bool)), [mapbox_gl_platform_interface.CameraUpdate]),
+    updateMyLocationTrackingMode: dart.fnType(async.Future$(dart.void), [mapbox_gl_platform_interface.MyLocationTrackingMode]),
+    matchMapLanguageWithDeviceDefault: dart.fnType(async.Future$(dart.void), []),
+    updateContentInsets: dart.fnType(async.Future$(dart.void), [edge_insets.EdgeInsets], [core.bool]),
+    setMapLanguage: dart.fnType(async.Future$(dart.void), [core.String]),
+    setTelemetryEnabled: dart.fnType(async.Future$(dart.void), [core.bool]),
+    getTelemetryEnabled: dart.fnType(async.Future$(core.bool), []),
+    addSymbol: dart.fnType(async.Future$(mapbox_gl_platform_interface.Symbol), [mapbox_gl_platform_interface.SymbolOptions], [dart.nullable(core.Map)]),
+    addSymbols: dart.fnType(async.Future$(core.List$(mapbox_gl_platform_interface.Symbol)), [core.List$(mapbox_gl_platform_interface.SymbolOptions)], [dart.nullable(core.List$(core.Map))]),
+    updateSymbol: dart.fnType(async.Future$(dart.void), [mapbox_gl_platform_interface.Symbol, mapbox_gl_platform_interface.SymbolOptions]),
+    getSymbolLatLng: dart.fnType(async.Future$(mapbox_gl_platform_interface.LatLng), [mapbox_gl_platform_interface.Symbol]),
+    removeSymbol: dart.fnType(async.Future$(dart.void), [mapbox_gl_platform_interface.Symbol]),
+    removeSymbols: dart.fnType(async.Future$(dart.void), [core.Iterable$(mapbox_gl_platform_interface.Symbol)]),
+    clearSymbols: dart.fnType(async.Future$(dart.void), []),
+    [_removeSymbols]: dart.fnType(async.Future$(dart.void), [core.Iterable$(core.String)]),
+    addLine: dart.fnType(async.Future$(mapbox_gl_platform_interface.Line), [mapbox_gl_platform_interface.LineOptions], [dart.nullable(core.Map)]),
+    addLines: dart.fnType(async.Future$(core.List$(mapbox_gl_platform_interface.Line)), [core.List$(mapbox_gl_platform_interface.LineOptions)], [dart.nullable(core.List$(core.Map))]),
+    updateLine: dart.fnType(async.Future$(dart.void), [mapbox_gl_platform_interface.Line, mapbox_gl_platform_interface.LineOptions]),
+    getLineLatLngs: dart.fnType(async.Future$(core.List$(mapbox_gl_platform_interface.LatLng)), [mapbox_gl_platform_interface.Line]),
+    removeLine: dart.fnType(async.Future$(dart.void), [mapbox_gl_platform_interface.Line]),
+    removeLines: dart.fnType(async.Future$(dart.void), [core.Iterable$(mapbox_gl_platform_interface.Line)]),
+    clearLines: dart.fnType(async.Future$(dart.void), []),
+    addCircle: dart.fnType(async.Future$(mapbox_gl_platform_interface.Circle), [mapbox_gl_platform_interface.CircleOptions], [dart.nullable(core.Map)]),
+    addCircles: dart.fnType(async.Future$(core.List$(mapbox_gl_platform_interface.Circle)), [core.List$(mapbox_gl_platform_interface.CircleOptions)], [dart.nullable(core.List$(core.Map))]),
+    updateCircle: dart.fnType(async.Future$(dart.void), [mapbox_gl_platform_interface.Circle, mapbox_gl_platform_interface.CircleOptions]),
+    getCircleLatLng: dart.fnType(async.Future$(mapbox_gl_platform_interface.LatLng), [mapbox_gl_platform_interface.Circle]),
+    removeCircle: dart.fnType(async.Future$(dart.void), [mapbox_gl_platform_interface.Circle]),
+    removeCircles: dart.fnType(async.Future$(dart.void), [core.Iterable$(mapbox_gl_platform_interface.Circle)]),
+    clearCircles: dart.fnType(async.Future$(dart.void), []),
+    addFill: dart.fnType(async.Future$(mapbox_gl_platform_interface.Fill), [mapbox_gl_platform_interface.FillOptions], [dart.nullable(core.Map)]),
+    addFills: dart.fnType(async.Future$(core.List$(mapbox_gl_platform_interface.Fill)), [core.List$(mapbox_gl_platform_interface.FillOptions)], [dart.nullable(core.List$(core.Map))]),
+    updateFill: dart.fnType(async.Future$(dart.void), [mapbox_gl_platform_interface.Fill, mapbox_gl_platform_interface.FillOptions]),
+    clearFills: dart.fnType(async.Future$(dart.void), []),
+    removeFill: dart.fnType(async.Future$(dart.void), [mapbox_gl_platform_interface.Fill]),
+    removeFills: dart.fnType(async.Future$(dart.void), [core.Iterable$(mapbox_gl_platform_interface.Fill)]),
+    queryRenderedFeatures: dart.fnType(async.Future$(core.List), [math.Point$(core.double), core.List$(core.String), dart.nullable(core.List$(core.Object))]),
+    queryRenderedFeaturesInRect: dart.fnType(async.Future$(core.List), [ui.Rect, core.List$(core.String), dart.nullable(core.String)]),
+    invalidateAmbientCache: dart.fnType(async.Future, []),
+    requestMyLocationLatLng: dart.fnType(async.Future$(dart.nullable(mapbox_gl_platform_interface.LatLng)), []),
+    getVisibleRegion: dart.fnType(async.Future$(mapbox_gl_platform_interface.LatLngBounds), []),
+    addImage: dart.fnType(async.Future$(dart.void), [core.String, typed_data.Uint8List], [core.bool]),
+    setSymbolIconAllowOverlap: dart.fnType(async.Future$(dart.void), [core.bool]),
+    setSymbolIconIgnorePlacement: dart.fnType(async.Future$(dart.void), [core.bool]),
+    setSymbolTextAllowOverlap: dart.fnType(async.Future$(dart.void), [core.bool]),
+    setSymbolTextIgnorePlacement: dart.fnType(async.Future$(dart.void), [core.bool]),
+    addImageSource: dart.fnType(async.Future$(dart.void), [core.String, typed_data.Uint8List, mapbox_gl_platform_interface.LatLngQuad]),
+    removeImageSource: dart.fnType(async.Future$(dart.void), [core.String]),
+    addLayer: dart.fnType(async.Future$(dart.void), [core.String, core.String]),
+    addLayerBelow: dart.fnType(async.Future$(dart.void), [core.String, core.String, core.String]),
+    removeLayer: dart.fnType(async.Future$(dart.void), [core.String]),
+    toScreenLocation: dart.fnType(async.Future$(math.Point$(core.num)), [mapbox_gl_platform_interface.LatLng]),
+    toScreenLocationBatch: dart.fnType(async.Future$(core.List$(math.Point$(core.num))), [core.Iterable$(mapbox_gl_platform_interface.LatLng)]),
+    toLatLng: dart.fnType(async.Future$(mapbox_gl_platform_interface.LatLng), [math.Point$(core.num)]),
+    getMetersPerPixelAtLatitude: dart.fnType(async.Future$(core.double), [core.double])
+  }));
+  dart.setGetterSignature(mapbox_gl.MapboxMapController, () => ({
+    __proto__: dart.getGetters(mapbox_gl.MapboxMapController.__proto__),
+    symbols: core.Set$(mapbox_gl_platform_interface.Symbol),
+    lines: core.Set$(mapbox_gl_platform_interface.Line),
+    circles: core.Set$(mapbox_gl_platform_interface.Circle),
+    fills: core.Set$(mapbox_gl_platform_interface.Fill),
+    isCameraMoving: core.bool,
+    cameraPosition: dart.nullable(mapbox_gl_platform_interface.CameraPosition)
+  }));
+  dart.setLibraryUri(mapbox_gl.MapboxMapController, I[1]);
+  dart.setFieldSignature(mapbox_gl.MapboxMapController, () => ({
+    __proto__: dart.getFields(mapbox_gl.MapboxMapController.__proto__),
+    onStyleLoadedCallback: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onMapClick: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [math.Point$(core.double), mapbox_gl_platform_interface.LatLng]))),
+    onMapLongClick: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [math.Point$(core.double), mapbox_gl_platform_interface.LatLng]))),
+    onUserLocationUpdated: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [mapbox_gl_platform_interface.UserLocation]))),
+    onAttributionClick: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onCameraTrackingDismissed: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onCameraTrackingChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [mapbox_gl_platform_interface.MyLocationTrackingMode]))),
+    onCameraIdle: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onMapIdle: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onSymbolTapped: dart.finalFieldType(mapbox_gl_platform_interface.ArgumentCallbacks$(mapbox_gl_platform_interface.Symbol)),
+    onCircleTapped: dart.finalFieldType(mapbox_gl_platform_interface.ArgumentCallbacks$(mapbox_gl_platform_interface.Circle)),
+    onFillTapped: dart.finalFieldType(mapbox_gl_platform_interface.ArgumentCallbacks$(mapbox_gl_platform_interface.Fill)),
+    onInfoWindowTapped: dart.finalFieldType(mapbox_gl_platform_interface.ArgumentCallbacks$(mapbox_gl_platform_interface.Symbol)),
+    [_symbols]: dart.finalFieldType(core.Map$(core.String, mapbox_gl_platform_interface.Symbol)),
+    onLineTapped: dart.finalFieldType(mapbox_gl_platform_interface.ArgumentCallbacks$(mapbox_gl_platform_interface.Line)),
+    [_lines]: dart.finalFieldType(core.Map$(core.String, mapbox_gl_platform_interface.Line)),
+    [_circles]: dart.finalFieldType(core.Map$(core.String, mapbox_gl_platform_interface.Circle)),
+    [_fills]: dart.finalFieldType(core.Map$(core.String, mapbox_gl_platform_interface.Fill)),
+    [_isCameraMoving]: dart.fieldType(core.bool),
+    [_cameraPosition]: dart.fieldType(dart.nullable(mapbox_gl_platform_interface.CameraPosition)),
+    [_id$]: dart.finalFieldType(core.int)
+  }));
+  var _name$ = dart.privateName(mapbox_gl, "_name");
+  mapbox_gl.AnnotationType = class AnnotationType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (mapbox_gl.AnnotationType.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = mapbox_gl.AnnotationType.prototype;
+  dart.addTypeTests(mapbox_gl.AnnotationType);
+  dart.addTypeCaches(mapbox_gl.AnnotationType);
+  dart.setLibraryUri(mapbox_gl.AnnotationType, I[1]);
+  dart.setFieldSignature(mapbox_gl.AnnotationType, () => ({
+    __proto__: dart.getFields(mapbox_gl.AnnotationType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(mapbox_gl.AnnotationType, ['toString']);
+  mapbox_gl.AnnotationType.fill = C[0] || CT.C0;
+  mapbox_gl.AnnotationType.line = C[1] || CT.C1;
+  mapbox_gl.AnnotationType.circle = C[2] || CT.C2;
+  mapbox_gl.AnnotationType.symbol = C[3] || CT.C3;
+  mapbox_gl.AnnotationType.values = C[4] || CT.C4;
+  var annotationOrder$ = dart.privateName(mapbox_gl, "MapboxMap.annotationOrder");
+  var annotationConsumeTapEvents$ = dart.privateName(mapbox_gl, "MapboxMap.annotationConsumeTapEvents");
+  var accessToken$ = dart.privateName(mapbox_gl, "MapboxMap.accessToken");
+  var onMapCreated$ = dart.privateName(mapbox_gl, "MapboxMap.onMapCreated");
+  var onStyleLoadedCallback$0 = dart.privateName(mapbox_gl, "MapboxMap.onStyleLoadedCallback");
+  var initialCameraPosition$ = dart.privateName(mapbox_gl, "MapboxMap.initialCameraPosition");
+  var compassEnabled$ = dart.privateName(mapbox_gl, "MapboxMap.compassEnabled");
+  var cameraTargetBounds$ = dart.privateName(mapbox_gl, "MapboxMap.cameraTargetBounds");
+  var styleString$ = dart.privateName(mapbox_gl, "MapboxMap.styleString");
+  var minMaxZoomPreference$ = dart.privateName(mapbox_gl, "MapboxMap.minMaxZoomPreference");
+  var rotateGesturesEnabled$ = dart.privateName(mapbox_gl, "MapboxMap.rotateGesturesEnabled");
+  var scrollGesturesEnabled$ = dart.privateName(mapbox_gl, "MapboxMap.scrollGesturesEnabled");
+  var zoomGesturesEnabled$ = dart.privateName(mapbox_gl, "MapboxMap.zoomGesturesEnabled");
+  var tiltGesturesEnabled$ = dart.privateName(mapbox_gl, "MapboxMap.tiltGesturesEnabled");
+  var trackCameraPosition$ = dart.privateName(mapbox_gl, "MapboxMap.trackCameraPosition");
+  var myLocationEnabled$ = dart.privateName(mapbox_gl, "MapboxMap.myLocationEnabled");
+  var myLocationTrackingMode$ = dart.privateName(mapbox_gl, "MapboxMap.myLocationTrackingMode");
+  var myLocationRenderMode$ = dart.privateName(mapbox_gl, "MapboxMap.myLocationRenderMode");
+  var logoViewMargins$ = dart.privateName(mapbox_gl, "MapboxMap.logoViewMargins");
+  var compassViewPosition$ = dart.privateName(mapbox_gl, "MapboxMap.compassViewPosition");
+  var compassViewMargins$ = dart.privateName(mapbox_gl, "MapboxMap.compassViewMargins");
+  var attributionButtonMargins$ = dart.privateName(mapbox_gl, "MapboxMap.attributionButtonMargins");
+  var gestureRecognizers$ = dart.privateName(mapbox_gl, "MapboxMap.gestureRecognizers");
+  var onMapClick$0 = dart.privateName(mapbox_gl, "MapboxMap.onMapClick");
+  var onMapLongClick$0 = dart.privateName(mapbox_gl, "MapboxMap.onMapLongClick");
+  var onAttributionClick$0 = dart.privateName(mapbox_gl, "MapboxMap.onAttributionClick");
+  var onUserLocationUpdated$0 = dart.privateName(mapbox_gl, "MapboxMap.onUserLocationUpdated");
+  var onCameraTrackingDismissed$0 = dart.privateName(mapbox_gl, "MapboxMap.onCameraTrackingDismissed");
+  var onCameraTrackingChanged$0 = dart.privateName(mapbox_gl, "MapboxMap.onCameraTrackingChanged");
+  var onCameraIdle$0 = dart.privateName(mapbox_gl, "MapboxMap.onCameraIdle");
+  var onMapIdle$0 = dart.privateName(mapbox_gl, "MapboxMap.onMapIdle");
+  var CameraTargetBounds_bounds = dart.privateName(mapbox_gl_platform_interface, "CameraTargetBounds.bounds");
+  var MinMaxZoomPreference_maxZoom = dart.privateName(mapbox_gl_platform_interface, "MinMaxZoomPreference.maxZoom");
+  var MinMaxZoomPreference_minZoom = dart.privateName(mapbox_gl_platform_interface, "MinMaxZoomPreference.minZoom");
+  var _name = dart.privateName(mapbox_gl_platform_interface, "_name");
+  mapbox_gl.MapboxMap = class MapboxMap extends framework.StatefulWidget {
+    get annotationOrder() {
+      return this[annotationOrder$];
+    }
+    set annotationOrder(value) {
+      super.annotationOrder = value;
+    }
+    get annotationConsumeTapEvents() {
+      return this[annotationConsumeTapEvents$];
+    }
+    set annotationConsumeTapEvents(value) {
+      super.annotationConsumeTapEvents = value;
+    }
+    get accessToken() {
+      return this[accessToken$];
+    }
+    set accessToken(value) {
+      super.accessToken = value;
+    }
+    get onMapCreated() {
+      return this[onMapCreated$];
+    }
+    set onMapCreated(value) {
+      super.onMapCreated = value;
+    }
+    get onStyleLoadedCallback() {
+      return this[onStyleLoadedCallback$0];
+    }
+    set onStyleLoadedCallback(value) {
+      super.onStyleLoadedCallback = value;
+    }
+    get initialCameraPosition() {
+      return this[initialCameraPosition$];
+    }
+    set initialCameraPosition(value) {
+      super.initialCameraPosition = value;
+    }
+    get compassEnabled() {
+      return this[compassEnabled$];
+    }
+    set compassEnabled(value) {
+      super.compassEnabled = value;
+    }
+    get cameraTargetBounds() {
+      return this[cameraTargetBounds$];
+    }
+    set cameraTargetBounds(value) {
+      super.cameraTargetBounds = value;
+    }
+    get styleString() {
+      return this[styleString$];
+    }
+    set styleString(value) {
+      super.styleString = value;
+    }
+    get minMaxZoomPreference() {
+      return this[minMaxZoomPreference$];
+    }
+    set minMaxZoomPreference(value) {
+      super.minMaxZoomPreference = value;
+    }
+    get rotateGesturesEnabled() {
+      return this[rotateGesturesEnabled$];
+    }
+    set rotateGesturesEnabled(value) {
+      super.rotateGesturesEnabled = value;
+    }
+    get scrollGesturesEnabled() {
+      return this[scrollGesturesEnabled$];
+    }
+    set scrollGesturesEnabled(value) {
+      super.scrollGesturesEnabled = value;
+    }
+    get zoomGesturesEnabled() {
+      return this[zoomGesturesEnabled$];
+    }
+    set zoomGesturesEnabled(value) {
+      super.zoomGesturesEnabled = value;
+    }
+    get tiltGesturesEnabled() {
+      return this[tiltGesturesEnabled$];
+    }
+    set tiltGesturesEnabled(value) {
+      super.tiltGesturesEnabled = value;
+    }
+    get trackCameraPosition() {
+      return this[trackCameraPosition$];
+    }
+    set trackCameraPosition(value) {
+      super.trackCameraPosition = value;
+    }
+    get myLocationEnabled() {
+      return this[myLocationEnabled$];
+    }
+    set myLocationEnabled(value) {
+      super.myLocationEnabled = value;
+    }
+    get myLocationTrackingMode() {
+      return this[myLocationTrackingMode$];
+    }
+    set myLocationTrackingMode(value) {
+      super.myLocationTrackingMode = value;
+    }
+    get myLocationRenderMode() {
+      return this[myLocationRenderMode$];
+    }
+    set myLocationRenderMode(value) {
+      super.myLocationRenderMode = value;
+    }
+    get logoViewMargins() {
+      return this[logoViewMargins$];
+    }
+    set logoViewMargins(value) {
+      super.logoViewMargins = value;
+    }
+    get compassViewPosition() {
+      return this[compassViewPosition$];
+    }
+    set compassViewPosition(value) {
+      super.compassViewPosition = value;
+    }
+    get compassViewMargins() {
+      return this[compassViewMargins$];
+    }
+    set compassViewMargins(value) {
+      super.compassViewMargins = value;
+    }
+    get attributionButtonMargins() {
+      return this[attributionButtonMargins$];
+    }
+    set attributionButtonMargins(value) {
+      super.attributionButtonMargins = value;
+    }
+    get gestureRecognizers() {
+      return this[gestureRecognizers$];
+    }
+    set gestureRecognizers(value) {
+      super.gestureRecognizers = value;
+    }
+    get onMapClick() {
+      return this[onMapClick$0];
+    }
+    set onMapClick(value) {
+      super.onMapClick = value;
+    }
+    get onMapLongClick() {
+      return this[onMapLongClick$0];
+    }
+    set onMapLongClick(value) {
+      super.onMapLongClick = value;
+    }
+    get onAttributionClick() {
+      return this[onAttributionClick$0];
+    }
+    set onAttributionClick(value) {
+      super.onAttributionClick = value;
+    }
+    get onUserLocationUpdated() {
+      return this[onUserLocationUpdated$0];
+    }
+    set onUserLocationUpdated(value) {
+      super.onUserLocationUpdated = value;
+    }
+    get onCameraTrackingDismissed() {
+      return this[onCameraTrackingDismissed$0];
+    }
+    set onCameraTrackingDismissed(value) {
+      super.onCameraTrackingDismissed = value;
+    }
+    get onCameraTrackingChanged() {
+      return this[onCameraTrackingChanged$0];
+    }
+    set onCameraTrackingChanged(value) {
+      super.onCameraTrackingChanged = value;
+    }
+    get onCameraIdle() {
+      return this[onCameraIdle$0];
+    }
+    set onCameraIdle(value) {
+      super.onCameraIdle = value;
+    }
+    get onMapIdle() {
+      return this[onMapIdle$0];
+    }
+    set onMapIdle(value) {
+      super.onMapIdle = value;
+    }
+    createState() {
+      return new mapbox_gl._MapboxMapState.new();
+    }
+  };
+  (mapbox_gl.MapboxMap.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let initialCameraPosition = opts && 'initialCameraPosition' in opts ? opts.initialCameraPosition : null;
+    let accessToken = opts && 'accessToken' in opts ? opts.accessToken : null;
+    let onMapCreated = opts && 'onMapCreated' in opts ? opts.onMapCreated : null;
+    let onStyleLoadedCallback = opts && 'onStyleLoadedCallback' in opts ? opts.onStyleLoadedCallback : null;
+    let gestureRecognizers = opts && 'gestureRecognizers' in opts ? opts.gestureRecognizers : null;
+    let compassEnabled = opts && 'compassEnabled' in opts ? opts.compassEnabled : true;
+    let cameraTargetBounds = opts && 'cameraTargetBounds' in opts ? opts.cameraTargetBounds : C[5] || CT.C5;
+    let styleString = opts && 'styleString' in opts ? opts.styleString : null;
+    let minMaxZoomPreference = opts && 'minMaxZoomPreference' in opts ? opts.minMaxZoomPreference : C[6] || CT.C6;
+    let rotateGesturesEnabled = opts && 'rotateGesturesEnabled' in opts ? opts.rotateGesturesEnabled : true;
+    let scrollGesturesEnabled = opts && 'scrollGesturesEnabled' in opts ? opts.scrollGesturesEnabled : true;
+    let zoomGesturesEnabled = opts && 'zoomGesturesEnabled' in opts ? opts.zoomGesturesEnabled : true;
+    let tiltGesturesEnabled = opts && 'tiltGesturesEnabled' in opts ? opts.tiltGesturesEnabled : true;
+    let trackCameraPosition = opts && 'trackCameraPosition' in opts ? opts.trackCameraPosition : false;
+    let myLocationEnabled = opts && 'myLocationEnabled' in opts ? opts.myLocationEnabled : false;
+    let myLocationTrackingMode = opts && 'myLocationTrackingMode' in opts ? opts.myLocationTrackingMode : C[7] || CT.C7;
+    let myLocationRenderMode = opts && 'myLocationRenderMode' in opts ? opts.myLocationRenderMode : C[8] || CT.C8;
+    let logoViewMargins = opts && 'logoViewMargins' in opts ? opts.logoViewMargins : null;
+    let compassViewPosition = opts && 'compassViewPosition' in opts ? opts.compassViewPosition : null;
+    let compassViewMargins = opts && 'compassViewMargins' in opts ? opts.compassViewMargins : null;
+    let attributionButtonMargins = opts && 'attributionButtonMargins' in opts ? opts.attributionButtonMargins : null;
+    let onMapClick = opts && 'onMapClick' in opts ? opts.onMapClick : null;
+    let onUserLocationUpdated = opts && 'onUserLocationUpdated' in opts ? opts.onUserLocationUpdated : null;
+    let onMapLongClick = opts && 'onMapLongClick' in opts ? opts.onMapLongClick : null;
+    let onAttributionClick = opts && 'onAttributionClick' in opts ? opts.onAttributionClick : null;
+    let onCameraTrackingDismissed = opts && 'onCameraTrackingDismissed' in opts ? opts.onCameraTrackingDismissed : null;
+    let onCameraTrackingChanged = opts && 'onCameraTrackingChanged' in opts ? opts.onCameraTrackingChanged : null;
+    let onCameraIdle = opts && 'onCameraIdle' in opts ? opts.onCameraIdle : null;
+    let onMapIdle = opts && 'onMapIdle' in opts ? opts.onMapIdle : null;
+    let annotationOrder = opts && 'annotationOrder' in opts ? opts.annotationOrder : C[9] || CT.C9;
+    let annotationConsumeTapEvents = opts && 'annotationConsumeTapEvents' in opts ? opts.annotationConsumeTapEvents : C[10] || CT.C10;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[initialCameraPosition$] = initialCameraPosition;
+    this[accessToken$] = accessToken;
+    this[onMapCreated$] = onMapCreated;
+    this[onStyleLoadedCallback$0] = onStyleLoadedCallback;
+    this[gestureRecognizers$] = gestureRecognizers;
+    this[compassEnabled$] = compassEnabled;
+    this[cameraTargetBounds$] = cameraTargetBounds;
+    this[styleString$] = styleString;
+    this[minMaxZoomPreference$] = minMaxZoomPreference;
+    this[rotateGesturesEnabled$] = rotateGesturesEnabled;
+    this[scrollGesturesEnabled$] = scrollGesturesEnabled;
+    this[zoomGesturesEnabled$] = zoomGesturesEnabled;
+    this[tiltGesturesEnabled$] = tiltGesturesEnabled;
+    this[trackCameraPosition$] = trackCameraPosition;
+    this[myLocationEnabled$] = myLocationEnabled;
+    this[myLocationTrackingMode$] = myLocationTrackingMode;
+    this[myLocationRenderMode$] = myLocationRenderMode;
+    this[logoViewMargins$] = logoViewMargins;
+    this[compassViewPosition$] = compassViewPosition;
+    this[compassViewMargins$] = compassViewMargins;
+    this[attributionButtonMargins$] = attributionButtonMargins;
+    this[onMapClick$0] = onMapClick;
+    this[onUserLocationUpdated$0] = onUserLocationUpdated;
+    this[onMapLongClick$0] = onMapLongClick;
+    this[onAttributionClick$0] = onAttributionClick;
+    this[onCameraTrackingDismissed$0] = onCameraTrackingDismissed;
+    this[onCameraTrackingChanged$0] = onCameraTrackingChanged;
+    this[onCameraIdle$0] = onCameraIdle;
+    this[onMapIdle$0] = onMapIdle;
+    this[annotationOrder$] = annotationOrder;
+    this[annotationConsumeTapEvents$] = annotationConsumeTapEvents;
+    if (!(annotationOrder[$length] === 4)) dart.assertFailed(null, I[2], 55, 16, "annotationOrder.length == 4");
+    if (!(annotationConsumeTapEvents[$length] > 0)) dart.assertFailed(null, I[2], 56, 16, "annotationConsumeTapEvents.length > 0");
+    mapbox_gl.MapboxMap.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = mapbox_gl.MapboxMap.prototype;
+  dart.addTypeTests(mapbox_gl.MapboxMap);
+  dart.addTypeCaches(mapbox_gl.MapboxMap);
+  dart.setMethodSignature(mapbox_gl.MapboxMap, () => ({
+    __proto__: dart.getMethods(mapbox_gl.MapboxMap.__proto__),
+    createState: dart.fnType(framework.State$(framework.StatefulWidget), [])
+  }));
+  dart.setLibraryUri(mapbox_gl.MapboxMap, I[1]);
+  dart.setFieldSignature(mapbox_gl.MapboxMap, () => ({
+    __proto__: dart.getFields(mapbox_gl.MapboxMap.__proto__),
+    annotationOrder: dart.finalFieldType(core.List$(mapbox_gl.AnnotationType)),
+    annotationConsumeTapEvents: dart.finalFieldType(core.List$(mapbox_gl.AnnotationType)),
+    accessToken: dart.finalFieldType(dart.nullable(core.String)),
+    onMapCreated: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [mapbox_gl.MapboxMapController]))),
+    onStyleLoadedCallback: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    initialCameraPosition: dart.finalFieldType(mapbox_gl_platform_interface.CameraPosition),
+    compassEnabled: dart.finalFieldType(core.bool),
+    cameraTargetBounds: dart.finalFieldType(mapbox_gl_platform_interface.CameraTargetBounds),
+    styleString: dart.finalFieldType(dart.nullable(core.String)),
+    minMaxZoomPreference: dart.finalFieldType(mapbox_gl_platform_interface.MinMaxZoomPreference),
+    rotateGesturesEnabled: dart.finalFieldType(core.bool),
+    scrollGesturesEnabled: dart.finalFieldType(core.bool),
+    zoomGesturesEnabled: dart.finalFieldType(core.bool),
+    tiltGesturesEnabled: dart.finalFieldType(core.bool),
+    trackCameraPosition: dart.finalFieldType(core.bool),
+    myLocationEnabled: dart.finalFieldType(core.bool),
+    myLocationTrackingMode: dart.finalFieldType(mapbox_gl_platform_interface.MyLocationTrackingMode),
+    myLocationRenderMode: dart.finalFieldType(mapbox_gl_platform_interface.MyLocationRenderMode),
+    logoViewMargins: dart.finalFieldType(dart.nullable(math.Point$(core.num))),
+    compassViewPosition: dart.finalFieldType(dart.nullable(mapbox_gl_platform_interface.CompassViewPosition)),
+    compassViewMargins: dart.finalFieldType(dart.nullable(math.Point$(core.num))),
+    attributionButtonMargins: dart.finalFieldType(dart.nullable(math.Point$(core.num))),
+    gestureRecognizers: dart.finalFieldType(dart.nullable(core.Set$(basic_types.Factory$(recognizer.OneSequenceGestureRecognizer)))),
+    onMapClick: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [math.Point$(core.double), mapbox_gl_platform_interface.LatLng]))),
+    onMapLongClick: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [math.Point$(core.double), mapbox_gl_platform_interface.LatLng]))),
+    onAttributionClick: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onUserLocationUpdated: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [mapbox_gl_platform_interface.UserLocation]))),
+    onCameraTrackingDismissed: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onCameraTrackingChanged: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [mapbox_gl_platform_interface.MyLocationTrackingMode]))),
+    onCameraIdle: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onMapIdle: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [])))
+  }));
+  var _controller = dart.privateName(mapbox_gl, "_controller");
+  var ___MapboxMapState__mapboxMapOptions = dart.privateName(mapbox_gl, "_#_MapboxMapState#_mapboxMapOptions");
+  var _mapboxGlPlatform = dart.privateName(mapbox_gl, "_mapboxGlPlatform");
+  var _mapboxMapOptions = dart.privateName(mapbox_gl, "_mapboxMapOptions");
+  var _updateOptions = dart.privateName(mapbox_gl, "_updateOptions");
+  mapbox_gl._MapboxMapState = class _MapboxMapState extends framework.State$(mapbox_gl.MapboxMap) {
+    get [_mapboxMapOptions]() {
+      let t0;
+      t0 = this[___MapboxMapState__mapboxMapOptions];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_mapboxMapOptions")) : t0;
+    }
+    set [_mapboxMapOptions](t0) {
+      this[___MapboxMapState__mapboxMapOptions] = t0;
+    }
+    build(context) {
+      let annotationOrder = this.widget.annotationOrder[$map](core.String, dart.fn(e => e.toString(), T.AnnotationTypeToString()))[$toList]();
+      let annotationConsumeTapEvents = this.widget.annotationConsumeTapEvents[$map](core.String, dart.fn(e => e.toString(), T.AnnotationTypeToString()))[$toList]();
+      let creationParams = new (T.IdentityMapOfString$dynamic()).from(["initialCameraPosition", this.widget.initialCameraPosition.toMap(), "options", mapbox_gl._MapboxMapOptions.fromWidget(this.widget).toMap(), "accessToken", this.widget.accessToken, "annotationOrder", annotationOrder, "annotationConsumeTapEvents", annotationConsumeTapEvents, "onAttributionClickOverride", this.widget.onAttributionClick != null]);
+      return this[_mapboxGlPlatform].buildView(creationParams, dart.bind(this, 'onPlatformViewCreated'), this.widget.gestureRecognizers);
+    }
+    initState() {
+      super.initState();
+      this[_mapboxMapOptions] = mapbox_gl._MapboxMapOptions.fromWidget(this.widget);
+    }
+    didUpdateWidget(oldWidget) {
+      mapbox_gl.MapboxMap.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+      let newOptions = mapbox_gl._MapboxMapOptions.fromWidget(this.widget);
+      let updates = this[_mapboxMapOptions].updatesMap(newOptions);
+      this[_updateOptions](updates);
+      this[_mapboxMapOptions] = newOptions;
+    }
+    [_updateOptions](updates) {
+      return async.async(dart.void, (function* _updateOptions() {
+        if (updates[$isEmpty]) {
+          return;
+        }
+        let controller = (yield this[_controller].future);
+        controller[_updateMapOptions](updates);
+      }).bind(this));
+    }
+    onPlatformViewCreated(id) {
+      return async.async(dart.void, (function* onPlatformViewCreated() {
+        mapbox_gl_platform_interface.MapboxGlPlatform.addInstance(id, this[_mapboxGlPlatform]);
+        let controller = mapbox_gl.MapboxMapController.init(id, this.widget.initialCameraPosition, {onStyleLoadedCallback: dart.fn(() => {
+            if (this[_controller].isCompleted) {
+              if (this.widget.onStyleLoadedCallback != null) {
+                dart.nullCheck(this.widget.onStyleLoadedCallback)();
+              }
+            } else {
+              this[_controller].future.then(core.Null, dart.fn(_ => {
+                if (this.widget.onStyleLoadedCallback != null) {
+                  dart.nullCheck(this.widget.onStyleLoadedCallback)();
+                }
+              }, T.MapboxMapControllerToNull()));
+            }
+          }, T.VoidTovoid()), onMapClick: this.widget.onMapClick, onUserLocationUpdated: this.widget.onUserLocationUpdated, onMapLongClick: this.widget.onMapLongClick, onAttributionClick: this.widget.onAttributionClick, onCameraTrackingDismissed: this.widget.onCameraTrackingDismissed, onCameraTrackingChanged: this.widget.onCameraTrackingChanged, onCameraIdle: this.widget.onCameraIdle, onMapIdle: this.widget.onMapIdle});
+        yield mapbox_gl.MapboxMapController.initPlatform(id);
+        this[_controller].complete(controller);
+        if (this.widget.onMapCreated != null) {
+          dart.nullCheck(this.widget.onMapCreated)(controller);
+        }
+      }).bind(this));
+    }
+  };
+  (mapbox_gl._MapboxMapState.new = function() {
+    this[_controller] = T.CompleterOfMapboxMapController().new();
+    this[___MapboxMapState__mapboxMapOptions] = null;
+    this[_mapboxGlPlatform] = mapbox_gl_platform_interface.MapboxGlPlatform.createInstance();
+    mapbox_gl._MapboxMapState.__proto__.new.call(this);
+    ;
+  }).prototype = mapbox_gl._MapboxMapState.prototype;
+  dart.addTypeTests(mapbox_gl._MapboxMapState);
+  dart.addTypeCaches(mapbox_gl._MapboxMapState);
+  dart.setMethodSignature(mapbox_gl._MapboxMapState, () => ({
+    __proto__: dart.getMethods(mapbox_gl._MapboxMapState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_updateOptions]: dart.fnType(dart.void, [core.Map$(core.String, dart.dynamic)]),
+    onPlatformViewCreated: dart.fnType(async.Future$(dart.void), [core.int])
+  }));
+  dart.setGetterSignature(mapbox_gl._MapboxMapState, () => ({
+    __proto__: dart.getGetters(mapbox_gl._MapboxMapState.__proto__),
+    [_mapboxMapOptions]: mapbox_gl._MapboxMapOptions
+  }));
+  dart.setSetterSignature(mapbox_gl._MapboxMapState, () => ({
+    __proto__: dart.getSetters(mapbox_gl._MapboxMapState.__proto__),
+    [_mapboxMapOptions]: mapbox_gl._MapboxMapOptions
+  }));
+  dart.setLibraryUri(mapbox_gl._MapboxMapState, I[1]);
+  dart.setFieldSignature(mapbox_gl._MapboxMapState, () => ({
+    __proto__: dart.getFields(mapbox_gl._MapboxMapState.__proto__),
+    [_controller]: dart.finalFieldType(async.Completer$(mapbox_gl.MapboxMapController)),
+    [___MapboxMapState__mapboxMapOptions]: dart.fieldType(dart.nullable(mapbox_gl._MapboxMapOptions)),
+    [_mapboxGlPlatform]: dart.finalFieldType(mapbox_gl_platform_interface.MapboxGlPlatform)
+  }));
+  mapbox_gl._MapboxMapOptions = class _MapboxMapOptions extends core.Object {
+    static fromWidget(map) {
+      return new mapbox_gl._MapboxMapOptions.new({compassEnabled: map.compassEnabled, cameraTargetBounds: map.cameraTargetBounds, styleString: map.styleString, minMaxZoomPreference: map.minMaxZoomPreference, rotateGesturesEnabled: map.rotateGesturesEnabled, scrollGesturesEnabled: map.scrollGesturesEnabled, tiltGesturesEnabled: map.tiltGesturesEnabled, trackCameraPosition: map.trackCameraPosition, zoomGesturesEnabled: map.zoomGesturesEnabled, myLocationEnabled: map.myLocationEnabled, myLocationTrackingMode: map.myLocationTrackingMode, myLocationRenderMode: map.myLocationRenderMode, logoViewMargins: map.logoViewMargins, compassViewPosition: map.compassViewPosition, compassViewMargins: map.compassViewMargins, attributionButtonMargins: map.attributionButtonMargins});
+    }
+    toMap() {
+      let t1, t1$, t1$0, t1$1, t1$2;
+      let optionsMap = new (T.IdentityMapOfString$dynamic()).new();
+      function addIfNonNull(fieldName, value) {
+        if (value != null) {
+          optionsMap[$_set](fieldName, value);
+        }
+      }
+      dart.fn(addIfNonNull, T.StringAnddynamicTovoid());
+      function pointToArray(fieldName) {
+        if (fieldName != null) {
+          return [fieldName.x, fieldName.y];
+        }
+        return null;
+      }
+      dart.fn(pointToArray, T.PointNOfnumToListN());
+      addIfNonNull("compassEnabled", this.compassEnabled);
+      addIfNonNull("cameraTargetBounds", (t1 = this.cameraTargetBounds, t1 == null ? null : t1.toJson()));
+      addIfNonNull("styleString", this.styleString);
+      addIfNonNull("minMaxZoomPreference", (t1$ = this.minMaxZoomPreference, t1$ == null ? null : t1$.toJson()));
+      addIfNonNull("rotateGesturesEnabled", this.rotateGesturesEnabled);
+      addIfNonNull("scrollGesturesEnabled", this.scrollGesturesEnabled);
+      addIfNonNull("tiltGesturesEnabled", this.tiltGesturesEnabled);
+      addIfNonNull("zoomGesturesEnabled", this.zoomGesturesEnabled);
+      addIfNonNull("trackCameraPosition", this.trackCameraPosition);
+      addIfNonNull("myLocationEnabled", this.myLocationEnabled);
+      addIfNonNull("myLocationTrackingMode", (t1$0 = this.myLocationTrackingMode, t1$0 == null ? null : t1$0.index));
+      addIfNonNull("myLocationRenderMode", (t1$1 = this.myLocationRenderMode, t1$1 == null ? null : t1$1.index));
+      addIfNonNull("logoViewMargins", pointToArray(this.logoViewMargins));
+      addIfNonNull("compassViewPosition", (t1$2 = this.compassViewPosition, t1$2 == null ? null : t1$2.index));
+      addIfNonNull("compassViewMargins", pointToArray(this.compassViewMargins));
+      addIfNonNull("attributionButtonMargins", pointToArray(this.attributionButtonMargins));
+      return optionsMap;
+    }
+    updatesMap(newOptions) {
+      let t1;
+      let prevOptionsMap = this.toMap();
+      t1 = newOptions.toMap();
+      return (() => {
+        t1[$removeWhere](dart.fn((key, value) => dart.equals(prevOptionsMap[$_get](key), value), T.StringAnddynamicTobool()));
+        return t1;
+      })();
+    }
+  };
+  (mapbox_gl._MapboxMapOptions.new = function(opts) {
+    let compassEnabled = opts && 'compassEnabled' in opts ? opts.compassEnabled : null;
+    let cameraTargetBounds = opts && 'cameraTargetBounds' in opts ? opts.cameraTargetBounds : null;
+    let styleString = opts && 'styleString' in opts ? opts.styleString : null;
+    let minMaxZoomPreference = opts && 'minMaxZoomPreference' in opts ? opts.minMaxZoomPreference : null;
+    let rotateGesturesEnabled = opts && 'rotateGesturesEnabled' in opts ? opts.rotateGesturesEnabled : null;
+    let scrollGesturesEnabled = opts && 'scrollGesturesEnabled' in opts ? opts.scrollGesturesEnabled : null;
+    let tiltGesturesEnabled = opts && 'tiltGesturesEnabled' in opts ? opts.tiltGesturesEnabled : null;
+    let trackCameraPosition = opts && 'trackCameraPosition' in opts ? opts.trackCameraPosition : null;
+    let zoomGesturesEnabled = opts && 'zoomGesturesEnabled' in opts ? opts.zoomGesturesEnabled : null;
+    let myLocationEnabled = opts && 'myLocationEnabled' in opts ? opts.myLocationEnabled : null;
+    let myLocationTrackingMode = opts && 'myLocationTrackingMode' in opts ? opts.myLocationTrackingMode : null;
+    let myLocationRenderMode = opts && 'myLocationRenderMode' in opts ? opts.myLocationRenderMode : null;
+    let logoViewMargins = opts && 'logoViewMargins' in opts ? opts.logoViewMargins : null;
+    let compassViewPosition = opts && 'compassViewPosition' in opts ? opts.compassViewPosition : null;
+    let compassViewMargins = opts && 'compassViewMargins' in opts ? opts.compassViewMargins : null;
+    let attributionButtonMargins = opts && 'attributionButtonMargins' in opts ? opts.attributionButtonMargins : null;
+    this.compassEnabled = compassEnabled;
+    this.cameraTargetBounds = cameraTargetBounds;
+    this.styleString = styleString;
+    this.minMaxZoomPreference = minMaxZoomPreference;
+    this.rotateGesturesEnabled = rotateGesturesEnabled;
+    this.scrollGesturesEnabled = scrollGesturesEnabled;
+    this.tiltGesturesEnabled = tiltGesturesEnabled;
+    this.trackCameraPosition = trackCameraPosition;
+    this.zoomGesturesEnabled = zoomGesturesEnabled;
+    this.myLocationEnabled = myLocationEnabled;
+    this.myLocationTrackingMode = myLocationTrackingMode;
+    this.myLocationRenderMode = myLocationRenderMode;
+    this.logoViewMargins = logoViewMargins;
+    this.compassViewPosition = compassViewPosition;
+    this.compassViewMargins = compassViewMargins;
+    this.attributionButtonMargins = attributionButtonMargins;
+    ;
+  }).prototype = mapbox_gl._MapboxMapOptions.prototype;
+  dart.addTypeTests(mapbox_gl._MapboxMapOptions);
+  dart.addTypeCaches(mapbox_gl._MapboxMapOptions);
+  dart.setMethodSignature(mapbox_gl._MapboxMapOptions, () => ({
+    __proto__: dart.getMethods(mapbox_gl._MapboxMapOptions.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), []),
+    updatesMap: dart.fnType(core.Map$(core.String, dart.dynamic), [mapbox_gl._MapboxMapOptions])
+  }));
+  dart.setLibraryUri(mapbox_gl._MapboxMapOptions, I[1]);
+  dart.setFieldSignature(mapbox_gl._MapboxMapOptions, () => ({
+    __proto__: dart.getFields(mapbox_gl._MapboxMapOptions.__proto__),
+    compassEnabled: dart.finalFieldType(dart.nullable(core.bool)),
+    cameraTargetBounds: dart.finalFieldType(dart.nullable(mapbox_gl_platform_interface.CameraTargetBounds)),
+    styleString: dart.finalFieldType(dart.nullable(core.String)),
+    minMaxZoomPreference: dart.finalFieldType(dart.nullable(mapbox_gl_platform_interface.MinMaxZoomPreference)),
+    rotateGesturesEnabled: dart.finalFieldType(dart.nullable(core.bool)),
+    scrollGesturesEnabled: dart.finalFieldType(dart.nullable(core.bool)),
+    tiltGesturesEnabled: dart.finalFieldType(dart.nullable(core.bool)),
+    trackCameraPosition: dart.finalFieldType(dart.nullable(core.bool)),
+    zoomGesturesEnabled: dart.finalFieldType(dart.nullable(core.bool)),
+    myLocationEnabled: dart.finalFieldType(dart.nullable(core.bool)),
+    myLocationTrackingMode: dart.finalFieldType(dart.nullable(mapbox_gl_platform_interface.MyLocationTrackingMode)),
+    myLocationRenderMode: dart.finalFieldType(dart.nullable(mapbox_gl_platform_interface.MyLocationRenderMode)),
+    logoViewMargins: dart.finalFieldType(dart.nullable(math.Point$(core.num))),
+    compassViewPosition: dart.finalFieldType(dart.nullable(mapbox_gl_platform_interface.CompassViewPosition)),
+    compassViewMargins: dart.finalFieldType(dart.nullable(math.Point$(core.num))),
+    attributionButtonMargins: dart.finalFieldType(dart.nullable(math.Point$(core.num)))
+  }));
+  var bounds$ = dart.privateName(mapbox_gl, "OfflineRegionDefinition.bounds");
+  var mapStyleUrl$ = dart.privateName(mapbox_gl, "OfflineRegionDefinition.mapStyleUrl");
+  var minZoom$ = dart.privateName(mapbox_gl, "OfflineRegionDefinition.minZoom");
+  var maxZoom$ = dart.privateName(mapbox_gl, "OfflineRegionDefinition.maxZoom");
+  var includeIdeographs$ = dart.privateName(mapbox_gl, "OfflineRegionDefinition.includeIdeographs");
+  mapbox_gl.OfflineRegionDefinition = class OfflineRegionDefinition extends core.Object {
+    get bounds() {
+      return this[bounds$];
+    }
+    set bounds(value) {
+      super.bounds = value;
+    }
+    get mapStyleUrl() {
+      return this[mapStyleUrl$];
+    }
+    set mapStyleUrl(value) {
+      super.mapStyleUrl = value;
+    }
+    get minZoom() {
+      return this[minZoom$];
+    }
+    set minZoom(value) {
+      super.minZoom = value;
+    }
+    get maxZoom() {
+      return this[maxZoom$];
+    }
+    set maxZoom(value) {
+      super.maxZoom = value;
+    }
+    get includeIdeographs() {
+      return this[includeIdeographs$];
+    }
+    set includeIdeographs(value) {
+      super.includeIdeographs = value;
+    }
+    toString() {
+      return dart.str(this[$runtimeType]) + ", bounds = " + dart.str(this.bounds) + ", mapStyleUrl = " + this.mapStyleUrl + ", minZoom = " + dart.str(this.minZoom) + ", maxZoom = " + dart.str(this.maxZoom);
+    }
+    toMap() {
+      let data = new (T.LinkedMapOfString$dynamic()).new();
+      data[$_set]("bounds", this.bounds.toList());
+      data[$_set]("mapStyleUrl", this.mapStyleUrl);
+      data[$_set]("minZoom", this.minZoom);
+      data[$_set]("maxZoom", this.maxZoom);
+      data[$_set]("includeIdeographs", this.includeIdeographs);
+      return data;
+    }
+    static fromMap(map) {
+      let t1;
+      return new mapbox_gl.OfflineRegionDefinition.new({bounds: mapbox_gl.OfflineRegionDefinition._latLngBoundsFromList(core.List.as(map[$_get]("bounds"))), mapStyleUrl: core.String.as(map[$_get]("mapStyleUrl")), minZoom: core.double.as(dart.dsend(map[$_get]("minZoom"), 'toDouble', [])), maxZoom: core.double.as(dart.dsend(map[$_get]("maxZoom"), 'toDouble', [])), includeIdeographs: core.bool.as((t1 = map[$_get]("includeIdeographs"), t1 == null ? false : t1))});
+    }
+    static _latLngBoundsFromList(json) {
+      return new mapbox_gl_platform_interface.LatLngBounds.new({southwest: new mapbox_gl_platform_interface.LatLng.new(core.double.as(dart.dsend(json[$_get](0), '_get', [0])), core.double.as(dart.dsend(json[$_get](0), '_get', [1]))), northeast: new mapbox_gl_platform_interface.LatLng.new(core.double.as(dart.dsend(json[$_get](1), '_get', [0])), core.double.as(dart.dsend(json[$_get](1), '_get', [1])))});
+    }
+  };
+  (mapbox_gl.OfflineRegionDefinition.new = function(opts) {
+    let bounds = opts && 'bounds' in opts ? opts.bounds : null;
+    let mapStyleUrl = opts && 'mapStyleUrl' in opts ? opts.mapStyleUrl : null;
+    let minZoom = opts && 'minZoom' in opts ? opts.minZoom : null;
+    let maxZoom = opts && 'maxZoom' in opts ? opts.maxZoom : null;
+    let includeIdeographs = opts && 'includeIdeographs' in opts ? opts.includeIdeographs : false;
+    this[bounds$] = bounds;
+    this[mapStyleUrl$] = mapStyleUrl;
+    this[minZoom$] = minZoom;
+    this[maxZoom$] = maxZoom;
+    this[includeIdeographs$] = includeIdeographs;
+    ;
+  }).prototype = mapbox_gl.OfflineRegionDefinition.prototype;
+  dart.addTypeTests(mapbox_gl.OfflineRegionDefinition);
+  dart.addTypeCaches(mapbox_gl.OfflineRegionDefinition);
+  dart.setMethodSignature(mapbox_gl.OfflineRegionDefinition, () => ({
+    __proto__: dart.getMethods(mapbox_gl.OfflineRegionDefinition.__proto__),
+    toMap: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }));
+  dart.setLibraryUri(mapbox_gl.OfflineRegionDefinition, I[1]);
+  dart.setFieldSignature(mapbox_gl.OfflineRegionDefinition, () => ({
+    __proto__: dart.getFields(mapbox_gl.OfflineRegionDefinition.__proto__),
+    bounds: dart.finalFieldType(mapbox_gl_platform_interface.LatLngBounds),
+    mapStyleUrl: dart.finalFieldType(core.String),
+    minZoom: dart.finalFieldType(core.double),
+    maxZoom: dart.finalFieldType(core.double),
+    includeIdeographs: dart.finalFieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(mapbox_gl.OfflineRegionDefinition, ['toString']);
+  var id$ = dart.privateName(mapbox_gl, "OfflineRegion.id");
+  var definition$ = dart.privateName(mapbox_gl, "OfflineRegion.definition");
+  var metadata$ = dart.privateName(mapbox_gl, "OfflineRegion.metadata");
+  mapbox_gl.OfflineRegion = class OfflineRegion extends core.Object {
+    get id() {
+      return this[id$];
+    }
+    set id(value) {
+      super.id = value;
+    }
+    get definition() {
+      return this[definition$];
+    }
+    set definition(value) {
+      super.definition = value;
+    }
+    get metadata() {
+      return this[metadata$];
+    }
+    set metadata(value) {
+      super.metadata = value;
+    }
+    static fromMap(json) {
+      return new mapbox_gl.OfflineRegion.new({id: core.int.as(json[$_get]("id")), definition: mapbox_gl.OfflineRegionDefinition.fromMap(T.MapOfString$dynamic().as(json[$_get]("definition"))), metadata: T.MapOfString$dynamic().as(json[$_get]("metadata"))});
+    }
+    toString() {
+      return dart.str(this[$runtimeType]) + ", id = " + dart.str(this.id) + ", definition = " + dart.str(this.definition) + ", metadata = " + dart.str(this.metadata);
+    }
+  };
+  (mapbox_gl.OfflineRegion.new = function(opts) {
+    let id = opts && 'id' in opts ? opts.id : null;
+    let definition = opts && 'definition' in opts ? opts.definition : null;
+    let metadata = opts && 'metadata' in opts ? opts.metadata : null;
+    this[id$] = id;
+    this[definition$] = definition;
+    this[metadata$] = metadata;
+    ;
+  }).prototype = mapbox_gl.OfflineRegion.prototype;
+  dart.addTypeTests(mapbox_gl.OfflineRegion);
+  dart.addTypeCaches(mapbox_gl.OfflineRegion);
+  dart.setLibraryUri(mapbox_gl.OfflineRegion, I[1]);
+  dart.setFieldSignature(mapbox_gl.OfflineRegion, () => ({
+    __proto__: dart.getFields(mapbox_gl.OfflineRegion.__proto__),
+    id: dart.finalFieldType(core.int),
+    definition: dart.finalFieldType(mapbox_gl.OfflineRegionDefinition),
+    metadata: dart.finalFieldType(core.Map$(core.String, dart.dynamic))
+  }));
+  dart.defineExtensionMethods(mapbox_gl.OfflineRegion, ['toString']);
+  mapbox_gl.DownloadRegionStatus = class DownloadRegionStatus extends core.Object {};
+  (mapbox_gl.DownloadRegionStatus.new = function() {
+    ;
+  }).prototype = mapbox_gl.DownloadRegionStatus.prototype;
+  dart.addTypeTests(mapbox_gl.DownloadRegionStatus);
+  dart.addTypeCaches(mapbox_gl.DownloadRegionStatus);
+  dart.setLibraryUri(mapbox_gl.DownloadRegionStatus, I[1]);
+  mapbox_gl.Success = class Success extends mapbox_gl.DownloadRegionStatus {};
+  (mapbox_gl.Success.new = function() {
+    ;
+  }).prototype = mapbox_gl.Success.prototype;
+  dart.addTypeTests(mapbox_gl.Success);
+  dart.addTypeCaches(mapbox_gl.Success);
+  dart.setLibraryUri(mapbox_gl.Success, I[1]);
+  var progress$ = dart.privateName(mapbox_gl, "InProgress.progress");
+  mapbox_gl.InProgress = class InProgress extends mapbox_gl.DownloadRegionStatus {
+    get progress() {
+      return this[progress$];
+    }
+    set progress(value) {
+      super.progress = value;
+    }
+    toString() {
+      return "Instance of 'DownloadRegionStatus.InProgress', progress = " + dart.str(this.progress);
+    }
+  };
+  (mapbox_gl.InProgress.new = function(progress) {
+    this[progress$] = progress;
+    ;
+  }).prototype = mapbox_gl.InProgress.prototype;
+  dart.addTypeTests(mapbox_gl.InProgress);
+  dart.addTypeCaches(mapbox_gl.InProgress);
+  dart.setLibraryUri(mapbox_gl.InProgress, I[1]);
+  dart.setFieldSignature(mapbox_gl.InProgress, () => ({
+    __proto__: dart.getFields(mapbox_gl.InProgress.__proto__),
+    progress: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(mapbox_gl.InProgress, ['toString']);
+  var cause$ = dart.privateName(mapbox_gl, "Error.cause");
+  mapbox_gl.Error = class Error extends mapbox_gl.DownloadRegionStatus {
+    get cause() {
+      return this[cause$];
+    }
+    set cause(value) {
+      super.cause = value;
+    }
+    toString() {
+      return "Instance of 'DownloadRegionStatus.Error', cause = " + this.cause.toString();
+    }
+  };
+  (mapbox_gl.Error.new = function(cause) {
+    this[cause$] = cause;
+    ;
+  }).prototype = mapbox_gl.Error.prototype;
+  dart.addTypeTests(mapbox_gl.Error);
+  dart.addTypeCaches(mapbox_gl.Error);
+  dart.setLibraryUri(mapbox_gl.Error, I[1]);
+  dart.setFieldSignature(mapbox_gl.Error, () => ({
+    __proto__: dart.getFields(mapbox_gl.Error.__proto__),
+    cause: dart.finalFieldType(message_codec.PlatformException)
+  }));
+  dart.defineExtensionMethods(mapbox_gl.Error, ['toString']);
+  mapbox_gl.installOfflineMapTiles = function installOfflineMapTiles(tilesDb) {
+    return async.async(dart.void, function* installOfflineMapTiles() {
+      yield mapbox_gl._globalChannel.invokeMethod(dart.dynamic, "installOfflineMapTiles", new (T.IdentityMapOfString$dynamic()).from(["tilesdb", tilesDb]));
+    });
+  };
+  mapbox_gl.setOffline = function setOffline(offline, opts) {
+    let accessToken = opts && 'accessToken' in opts ? opts.accessToken : null;
+    return mapbox_gl._globalChannel.invokeMethod(dart.dynamic, "setOffline", new (T.IdentityMapOfString$dynamic()).from(["offline", offline, "accessToken", accessToken]));
+  };
+  mapbox_gl.mergeOfflineRegions = function mergeOfflineRegions(path, opts) {
+    let accessToken = opts && 'accessToken' in opts ? opts.accessToken : null;
+    return async.async(T.ListOfOfflineRegion(), function* mergeOfflineRegions() {
+      let regionsJson = core.String.as(yield mapbox_gl._globalChannel.invokeMethod(dart.dynamic, "mergeOfflineRegions", new (T.IdentityMapOfString$dynamic()).from(["path", path, "accessToken", accessToken])));
+      let regions = core.Iterable.as(convert.json.decode(regionsJson));
+      return regions[$map](mapbox_gl.OfflineRegion, dart.fn(region => mapbox_gl.OfflineRegion.fromMap(T.MapOfString$dynamic().as(region)), T.dynamicToOfflineRegion()))[$toList]();
+    });
+  };
+  mapbox_gl.getListOfRegions = function getListOfRegions(opts) {
+    let accessToken = opts && 'accessToken' in opts ? opts.accessToken : null;
+    return async.async(T.ListOfOfflineRegion(), function* getListOfRegions() {
+      let regionsJson = core.String.as(yield mapbox_gl._globalChannel.invokeMethod(dart.dynamic, "getListOfRegions", new (T.IdentityMapOfString$dynamic()).from(["accessToken", accessToken])));
+      let regions = core.Iterable.as(convert.json.decode(regionsJson));
+      return regions[$map](mapbox_gl.OfflineRegion, dart.fn(region => mapbox_gl.OfflineRegion.fromMap(T.MapOfString$dynamic().as(region)), T.dynamicToOfflineRegion()))[$toList]();
+    });
+  };
+  mapbox_gl.updateOfflineRegionMetadata = function updateOfflineRegionMetadata(id, metadata, opts) {
+    let accessToken = opts && 'accessToken' in opts ? opts.accessToken : null;
+    return async.async(mapbox_gl.OfflineRegion, function* updateOfflineRegionMetadata() {
+      let regionJson = (yield mapbox_gl._globalChannel.invokeMethod(dart.dynamic, "updateOfflineRegionMetadata", new (T.IdentityMapOfString$dynamic()).from(["id", id, "accessToken", accessToken, "metadata", metadata])));
+      return mapbox_gl.OfflineRegion.fromMap(T.MapOfString$dynamic().as(convert.json.decode(core.String.as(regionJson))));
+    });
+  };
+  mapbox_gl.setOfflineTileCountLimit = function setOfflineTileCountLimit(limit, opts) {
+    let accessToken = opts && 'accessToken' in opts ? opts.accessToken : null;
+    return mapbox_gl._globalChannel.invokeMethod(dart.dynamic, "setOfflineTileCountLimit", new (T.IdentityMapOfString$dynamic()).from(["limit", limit, "accessToken", accessToken]));
+  };
+  mapbox_gl.deleteOfflineRegion = function deleteOfflineRegion(id, opts) {
+    let accessToken = opts && 'accessToken' in opts ? opts.accessToken : null;
+    return mapbox_gl._globalChannel.invokeMethod(dart.dynamic, "deleteOfflineRegion", new (T.IdentityMapOfString$dynamic()).from(["id", id, "accessToken", accessToken]));
+  };
+  mapbox_gl.downloadOfflineRegion = function downloadOfflineRegion(definition, opts) {
+    let metadata = opts && 'metadata' in opts ? opts.metadata : C[11] || CT.C11;
+    let accessToken = opts && 'accessToken' in opts ? opts.accessToken : null;
+    let onEvent = opts && 'onEvent' in opts ? opts.onEvent : null;
+    return async.async(mapbox_gl.OfflineRegion, function* downloadOfflineRegion() {
+      let channelName = "downloadOfflineRegion_" + dart.str(new core.DateTime.now().microsecondsSinceEpoch);
+      let result = mapbox_gl._globalChannel.invokeMethod(dart.dynamic, "downloadOfflineRegion", new (T.IdentityMapOfString$dynamic()).from(["accessToken", accessToken, "channelName", channelName, "definition", definition.toMap(), "metadata", metadata]));
+      if (onEvent != null) {
+        new platform_channel.EventChannel.new(channelName).receiveBroadcastStream().handleError(dart.fn(error => {
+          if (message_codec.PlatformException.is(error)) {
+            onEvent(new mapbox_gl.Error.new(error));
+            return new mapbox_gl.Error.new(error);
+          }
+          let unknownError = new mapbox_gl.Error.new(new message_codec.PlatformException.new({code: "UnknowException", message: "This error is unhandled by plugin. Please contact us if needed.", details: error}));
+          onEvent(unknownError);
+          return unknownError;
+        }, T.dynamicToError())).listen(dart.fn(data => {
+          let t1;
+          let jsonData = T.MapOfString$dynamic().as(convert.json.decode(core.String.as(data)));
+          let status = null;
+          switch (jsonData[$_get]("status")) {
+            case "start":
+            {
+              status = new mapbox_gl.InProgress.new(0.0);
+              break;
+            }
+            case "progress":
+            {
+              let value = jsonData[$_get]("progress");
+              let progress = 0.0;
+              if (core.int.is(value)) {
+                progress = value[$toDouble]();
+              }
+              if (typeof value == 'number') {
+                progress = value;
+              }
+              status = new mapbox_gl.InProgress.new(progress);
+              break;
+            }
+            case "success":
+            {
+              status = new mapbox_gl.Success.new();
+              break;
+            }
+          }
+          onEvent((t1 = status, t1 == null ? dart.throw("Invalid event status " + dart.str(jsonData[$_get]("status"))) : t1));
+        }, T.dynamicTovoid()));
+      }
+      return mapbox_gl.OfflineRegion.fromMap(T.MapOfString$dynamic().as(convert.json.decode(core.String.as(yield result))));
+    });
+  };
+  dart.defineLazy(mapbox_gl, {
+    /*mapbox_gl._globalChannel*/get _globalChannel() {
+      return new platform_channel.MethodChannel.new("plugins.flutter.io/mapbox_gl");
+    }
+  }, false);
+  dart.trackLibraries("packages/mapbox_gl/mapbox_gl.dart", {
+    "package:mapbox_gl/mapbox_gl.dart": mapbox_gl
+  }, {
+    "package:mapbox_gl/mapbox_gl.dart": ["src/controller.dart", "src/mapbox_map.dart", "src/global.dart", "src/offline_region.dart", "src/download_region_status.dart"]
+  }, '{"version":3,"sourceRoot":"","sources":["src/controller.dart","src/mapbox_map.dart","src/offline_region.dart","src/download_region_status.dart","src/global.dart"],"names":[],"mappings":"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","file":"../../../../../../packages/mapbox_gl/mapbox_gl.dart.lib.js"}');
+  // Exports:
+  return {
+    mapbox_gl: mapbox_gl
+  };
+}));
+
+//# sourceMappingURL=mapbox_gl.dart.lib.js.map
