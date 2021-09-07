@@ -33,7 +33,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.mapbox.mapboxglexample"
+        applicationId "eu.onhaven.mapboxglexample"
         minSdkVersion 20
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
